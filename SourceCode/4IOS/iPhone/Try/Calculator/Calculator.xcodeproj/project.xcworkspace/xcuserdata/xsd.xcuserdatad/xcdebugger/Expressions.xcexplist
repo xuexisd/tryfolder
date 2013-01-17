@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[CalculatorViewController btnCal:]:CalculatorViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "operationed">
+            </PersistentString>
+            <PersistentString
+               value = "beforeNum">
+            </PersistentString>
+            <PersistentString
+               value = "afterNum">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CalculatorViewController btnResult:]:CalculatorViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "aNum">
+            </PersistentString>
+            <PersistentString
+               value = "afterNum">
+            </PersistentString>
+            <PersistentString
+               value = "operationed">
+            </PersistentString>
+            <PersistentString
+               value = "bNum">
+            </PersistentString>
+            <PersistentString
+               value = "beforeNum">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

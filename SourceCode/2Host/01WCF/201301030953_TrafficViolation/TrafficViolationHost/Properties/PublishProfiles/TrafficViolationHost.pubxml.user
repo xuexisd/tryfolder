@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Sunny.DataManipulation.dll">
+      <publishTime>01/04/2013 07:55:23</publishTime>
+    </File>
+    <File Include="bin/TrafficViolationCommon.dll">
+      <publishTime>01/06/2013 21:31:57</publishTime>
+    </File>
+    <File Include="bin/TrafficViolationContract.dll">
+      <publishTime>01/14/2013 00:38:37</publishTime>
+    </File>
+    <File Include="bin/TrafficViolationDA.dll">
+      <publishTime>01/17/2013 01:15:50</publishTime>
+    </File>
+    <File Include="bin/TrafficViolationHost.dll">
+      <publishTime>01/17/2013 01:15:50</publishTime>
+    </File>
+    <File Include="bin/TrafficViolationModel.dll">
+      <publishTime>01/14/2013 00:38:36</publishTime>
+    </File>
+    <File Include="SC.svc">
+      <publishTime>01/04/2013 07:55:23</publishTime>
+    </File>
+    <File Include="test.aspx">
+      <publishTime>01/06/2013 22:45:39</publishTime>
+    </File>
+    <File Include="Test.svc">
+      <publishTime>01/04/2013 07:55:23</publishTime>
+    </File>
+    <File Include="UpdateRefreshDate.aspx">
+      <publishTime>01/17/2013 00:54:03</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/17/2013 01:15:50</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

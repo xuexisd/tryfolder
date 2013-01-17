@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		590F50DF169F152200C98984 /* TVViolationInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 590F50DE169F152200C98984 /* TVViolationInfoCell.m */; };
+		59176F10169DB103008540B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59176F0F169DB103008540B5 /* UIKit.framework */; };
+		59176F12169DB103008540B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59176F11169DB103008540B5 /* Foundation.framework */; };
+		59176F14169DB103008540B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59176F13169DB103008540B5 /* CoreGraphics.framework */; };
+		59176F1A169DB103008540B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59176F18169DB103008540B5 /* InfoPlist.strings */; };
+		59176F1C169DB103008540B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59176F1B169DB103008540B5 /* main.m */; };
+		59176F20169DB103008540B5 /* TrafficViolationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59176F1F169DB103008540B5 /* TrafficViolationAppDelegate.m */; };
+		59176F23169DB103008540B5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59176F21169DB103008540B5 /* MainStoryboard.storyboard */; };
+		59176F26169DB103008540B5 /* TrafficViolationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59176F25169DB103008540B5 /* TrafficViolationViewController.m */; };
+		599955AB169DB88C009326B4 /* TVAddCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 599955AA169DB88C009326B4 /* TVAddCarViewController.m */; };
+		599955C7169DD336009326B4 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 599955C6169DD336009326B4 /* Global.m */; };
+		59D346BC169F1DD1002FBF74 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D346BB169F1DD1002FBF74 /* MBProgressHUD.m */; };
+		59E25E0C169DD80500BD4B6D /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DD6169DD80500BD4B6D /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E0D169DD80500BD4B6D /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DD9169DD80500BD4B6D /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E0E169DD80500BD4B6D /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DDB169DD80500BD4B6D /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E0F169DD80500BD4B6D /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DDD169DD80500BD4B6D /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E10169DD80500BD4B6D /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DDF169DD80500BD4B6D /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E11169DD80500BD4B6D /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DE1169DD80500BD4B6D /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E12169DD80500BD4B6D /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DE5169DD80500BD4B6D /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E13169DD80500BD4B6D /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DE7169DD80500BD4B6D /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E14169DD80500BD4B6D /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DEB169DD80500BD4B6D /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E15169DD80500BD4B6D /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DEE169DD80500BD4B6D /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E16169DD80500BD4B6D /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DF0169DD80500BD4B6D /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E17169DD80500BD4B6D /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DF2169DD80500BD4B6D /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E18169DD80500BD4B6D /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DF4169DD80500BD4B6D /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E19169DD80500BD4B6D /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DF6169DD80500BD4B6D /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E1A169DD80500BD4B6D /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DF8169DD80500BD4B6D /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E1B169DD80500BD4B6D /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DFA169DD80500BD4B6D /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E1C169DD80500BD4B6D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25DFD169DD80500BD4B6D /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E1D169DD80500BD4B6D /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25E01169DD80500BD4B6D /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E1E169DD80500BD4B6D /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25E03169DD80500BD4B6D /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E1F169DD80500BD4B6D /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25E05169DD80500BD4B6D /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E20169DD80500BD4B6D /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25E07169DD80500BD4B6D /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E21169DD80500BD4B6D /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25E09169DD80500BD4B6D /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E22169DD80500BD4B6D /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E25E0B169DD80500BD4B6D /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		59E25E25169DD89D00BD4B6D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E25E24169DD89D00BD4B6D /* CFNetwork.framework */; };
+		59E25E27169DD8A700BD4B6D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E25E26169DD8A700BD4B6D /* SystemConfiguration.framework */; };
+		59E25E29169DD8AE00BD4B6D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E25E28169DD8AE00BD4B6D /* MobileCoreServices.framework */; };
+		59E25E2B169DD8B900BD4B6D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E25E2A169DD8B900BD4B6D /* libxml2.dylib */; };
+		59E25E2D169DD8C200BD4B6D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E25E2C169DD8C200BD4B6D /* libz.dylib */; };
+		7A09625C169EAFFF00D12EE6 /* TVCompletedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A09625B169EAFFF00D12EE6 /* TVCompletedViewController.m */; };
+		7A096260169EB03D00D12EE6 /* TVUnprocessedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A09625F169EB03D00D12EE6 /* TVUnprocessedViewController.m */; };
+		7A096270169EBBB300D12EE6 /* SCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A09626F169EBBB300D12EE6 /* SCModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		590F50DD169F152200C98984 /* TVViolationInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVViolationInfoCell.h; sourceTree = "<group>"; };
+		590F50DE169F152200C98984 /* TVViolationInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVViolationInfoCell.m; sourceTree = "<group>"; };
+		59176F0B169DB103008540B5 /* 查个交通违章.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "查个交通违章.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59176F0F169DB103008540B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		59176F11169DB103008540B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		59176F13169DB103008540B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		59176F17169DB103008540B5 /* 查个交通违章-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "查个交通违章-Info.plist"; sourceTree = "<group>"; };
+		59176F1B169DB103008540B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		59176F1D169DB103008540B5 /* 查个交通违章-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "查个交通违章-Prefix.pch"; sourceTree = "<group>"; };
+		59176F1E169DB103008540B5 /* TrafficViolationAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrafficViolationAppDelegate.h; sourceTree = "<group>"; };
+		59176F1F169DB103008540B5 /* TrafficViolationAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrafficViolationAppDelegate.m; sourceTree = "<group>"; };
+		59176F24169DB103008540B5 /* TrafficViolationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrafficViolationViewController.h; sourceTree = "<group>"; };
+		59176F25169DB103008540B5 /* TrafficViolationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrafficViolationViewController.m; sourceTree = "<group>"; };
+		59176F2C169DB120008540B5 /* zh */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = zh; path = zh.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		59176F2D169DB120008540B5 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		599955A9169DB88C009326B4 /* TVAddCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVAddCarViewController.h; sourceTree = "<group>"; };
+		599955AA169DB88C009326B4 /* TVAddCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVAddCarViewController.m; sourceTree = "<group>"; };
+		599955C5169DD336009326B4 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		599955C6169DD336009326B4 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		59D346BA169F1DD1002FBF74 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		59D346BB169F1DD1002FBF74 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		59E25DD5169DD80500BD4B6D /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		59E25DD6169DD80500BD4B6D /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		59E25DD7169DD80500BD4B6D /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		59E25DD8169DD80500BD4B6D /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		59E25DD9169DD80500BD4B6D /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		59E25DDA169DD80500BD4B6D /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		59E25DDB169DD80500BD4B6D /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		59E25DDC169DD80500BD4B6D /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		59E25DDD169DD80500BD4B6D /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		59E25DDE169DD80500BD4B6D /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		59E25DDF169DD80500BD4B6D /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		59E25DE0169DD80500BD4B6D /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		59E25DE1169DD80500BD4B6D /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		59E25DE2169DD80500BD4B6D /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		59E25DE3169DD80500BD4B6D /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		59E25DE4169DD80500BD4B6D /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		59E25DE5169DD80500BD4B6D /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		59E25DE6169DD80500BD4B6D /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		59E25DE7169DD80500BD4B6D /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		59E25DE8169DD80500BD4B6D /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		59E25DEA169DD80500BD4B6D /* ASIWebPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIWebPageRequest.h; sourceTree = "<group>"; };
+		59E25DEB169DD80500BD4B6D /* ASIWebPageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIWebPageRequest.m; sourceTree = "<group>"; };
+		59E25DED169DD80500BD4B6D /* ASICloudFilesCDNRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesCDNRequest.h; sourceTree = "<group>"; };
+		59E25DEE169DD80500BD4B6D /* ASICloudFilesCDNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesCDNRequest.m; sourceTree = "<group>"; };
+		59E25DEF169DD80500BD4B6D /* ASICloudFilesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainer.h; sourceTree = "<group>"; };
+		59E25DF0169DD80500BD4B6D /* ASICloudFilesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainer.m; sourceTree = "<group>"; };
+		59E25DF1169DD80500BD4B6D /* ASICloudFilesContainerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerRequest.h; sourceTree = "<group>"; };
+		59E25DF2169DD80500BD4B6D /* ASICloudFilesContainerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerRequest.m; sourceTree = "<group>"; };
+		59E25DF3169DD80500BD4B6D /* ASICloudFilesContainerXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerXMLParserDelegate.h; sourceTree = "<group>"; };
+		59E25DF4169DD80500BD4B6D /* ASICloudFilesContainerXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerXMLParserDelegate.m; sourceTree = "<group>"; };
+		59E25DF5169DD80500BD4B6D /* ASICloudFilesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObject.h; sourceTree = "<group>"; };
+		59E25DF6169DD80500BD4B6D /* ASICloudFilesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObject.m; sourceTree = "<group>"; };
+		59E25DF7169DD80500BD4B6D /* ASICloudFilesObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObjectRequest.h; sourceTree = "<group>"; };
+		59E25DF8169DD80500BD4B6D /* ASICloudFilesObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObjectRequest.m; sourceTree = "<group>"; };
+		59E25DF9169DD80500BD4B6D /* ASICloudFilesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesRequest.h; sourceTree = "<group>"; };
+		59E25DFA169DD80500BD4B6D /* ASICloudFilesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesRequest.m; sourceTree = "<group>"; };
+		59E25DFC169DD80500BD4B6D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		59E25DFD169DD80500BD4B6D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		59E25DFF169DD80500BD4B6D /* ASINSXMLParserCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINSXMLParserCompat.h; sourceTree = "<group>"; };
+		59E25E00169DD80500BD4B6D /* ASIS3Bucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Bucket.h; sourceTree = "<group>"; };
+		59E25E01169DD80500BD4B6D /* ASIS3Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Bucket.m; sourceTree = "<group>"; };
+		59E25E02169DD80500BD4B6D /* ASIS3BucketObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketObject.h; sourceTree = "<group>"; };
+		59E25E03169DD80500BD4B6D /* ASIS3BucketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketObject.m; sourceTree = "<group>"; };
+		59E25E04169DD80500BD4B6D /* ASIS3BucketRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketRequest.h; sourceTree = "<group>"; };
+		59E25E05169DD80500BD4B6D /* ASIS3BucketRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketRequest.m; sourceTree = "<group>"; };
+		59E25E06169DD80500BD4B6D /* ASIS3ObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ObjectRequest.h; sourceTree = "<group>"; };
+		59E25E07169DD80500BD4B6D /* ASIS3ObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ObjectRequest.m; sourceTree = "<group>"; };
+		59E25E08169DD80500BD4B6D /* ASIS3Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Request.h; sourceTree = "<group>"; };
+		59E25E09169DD80500BD4B6D /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
+		59E25E0A169DD80500BD4B6D /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
+		59E25E0B169DD80500BD4B6D /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
+		59E25E24169DD89D00BD4B6D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		59E25E26169DD8A700BD4B6D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		59E25E28169DD8AE00BD4B6D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		59E25E2A169DD8B900BD4B6D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		59E25E2C169DD8C200BD4B6D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7A09625A169EAFFF00D12EE6 /* TVCompletedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCompletedViewController.h; sourceTree = "<group>"; };
+		7A09625B169EAFFF00D12EE6 /* TVCompletedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVCompletedViewController.m; sourceTree = "<group>"; };
+		7A09625E169EB03D00D12EE6 /* TVUnprocessedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVUnprocessedViewController.h; sourceTree = "<group>"; };
+		7A09625F169EB03D00D12EE6 /* TVUnprocessedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVUnprocessedViewController.m; sourceTree = "<group>"; };
+		7A09626E169EBBB300D12EE6 /* SCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCModel.h; sourceTree = "<group>"; };
+		7A09626F169EBBB300D12EE6 /* SCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		59176F08169DB103008540B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59E25E2D169DD8C200BD4B6D /* libz.dylib in Frameworks */,
+				59E25E2B169DD8B900BD4B6D /* libxml2.dylib in Frameworks */,
+				59E25E29169DD8AE00BD4B6D /* MobileCoreServices.framework in Frameworks */,
+				59E25E27169DD8A700BD4B6D /* SystemConfiguration.framework in Frameworks */,
+				59E25E25169DD89D00BD4B6D /* CFNetwork.framework in Frameworks */,
+				59176F10169DB103008540B5 /* UIKit.framework in Frameworks */,
+				59176F12169DB103008540B5 /* Foundation.framework in Frameworks */,
+				59176F14169DB103008540B5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59176F00169DB103008540B5 = {
+			isa = PBXGroup;
+			children = (
+				59176F15169DB103008540B5 /* 查个交通违章 */,
+				59176F0E169DB103008540B5 /* Frameworks */,
+				59176F0C169DB103008540B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		59176F0C169DB103008540B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59176F0B169DB103008540B5 /* 查个交通违章.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		59176F0E169DB103008540B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59E25E2C169DD8C200BD4B6D /* libz.dylib */,
+				59E25E2A169DD8B900BD4B6D /* libxml2.dylib */,
+				59E25E28169DD8AE00BD4B6D /* MobileCoreServices.framework */,
+				59E25E26169DD8A700BD4B6D /* SystemConfiguration.framework */,
+				59E25E24169DD89D00BD4B6D /* CFNetwork.framework */,
+				59176F0F169DB103008540B5 /* UIKit.framework */,
+				59176F11169DB103008540B5 /* Foundation.framework */,
+				59176F13169DB103008540B5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59176F15169DB103008540B5 /* 查个交通违章 */ = {
+			isa = PBXGroup;
+			children = (
+				59D346B8169F1DB6002FBF74 /* MBProgress */,
+				59E25DD4169DD80500BD4B6D /* ASIHTTPRequest */,
+				7A09626D169EBB8300D12EE6 /* TVModel */,
+				59176F1E169DB103008540B5 /* TrafficViolationAppDelegate.h */,
+				59176F1F169DB103008540B5 /* TrafficViolationAppDelegate.m */,
+				59176F21169DB103008540B5 /* MainStoryboard.storyboard */,
+				59176F24169DB103008540B5 /* TrafficViolationViewController.h */,
+				59176F25169DB103008540B5 /* TrafficViolationViewController.m */,
+				599955A9169DB88C009326B4 /* TVAddCarViewController.h */,
+				599955AA169DB88C009326B4 /* TVAddCarViewController.m */,
+				7A09625A169EAFFF00D12EE6 /* TVCompletedViewController.h */,
+				7A09625B169EAFFF00D12EE6 /* TVCompletedViewController.m */,
+				7A09625E169EB03D00D12EE6 /* TVUnprocessedViewController.h */,
+				7A09625F169EB03D00D12EE6 /* TVUnprocessedViewController.m */,
+				590F50DD169F152200C98984 /* TVViolationInfoCell.h */,
+				590F50DE169F152200C98984 /* TVViolationInfoCell.m */,
+				59176F16169DB103008540B5 /* Supporting Files */,
+			);
+			path = "查个交通违章";
+			sourceTree = "<group>";
+		};
+		59176F16169DB103008540B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				59176F17169DB103008540B5 /* 查个交通违章-Info.plist */,
+				59176F18169DB103008540B5 /* InfoPlist.strings */,
+				59176F1B169DB103008540B5 /* main.m */,
+				59176F1D169DB103008540B5 /* 查个交通违章-Prefix.pch */,
+				599955C5169DD336009326B4 /* Global.h */,
+				599955C6169DD336009326B4 /* Global.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		59D346B8169F1DB6002FBF74 /* MBProgress */ = {
+			isa = PBXGroup;
+			children = (
+				59D346BA169F1DD1002FBF74 /* MBProgressHUD.h */,
+				59D346BB169F1DD1002FBF74 /* MBProgressHUD.m */,
+			);
+			name = MBProgress;
+			sourceTree = "<group>";
+		};
+		59E25DD4169DD80500BD4B6D /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				59E25DD5169DD80500BD4B6D /* ASIAuthenticationDialog.h */,
+				59E25DD6169DD80500BD4B6D /* ASIAuthenticationDialog.m */,
+				59E25DD7169DD80500BD4B6D /* ASICacheDelegate.h */,
+				59E25DD8169DD80500BD4B6D /* ASIDataCompressor.h */,
+				59E25DD9169DD80500BD4B6D /* ASIDataCompressor.m */,
+				59E25DDA169DD80500BD4B6D /* ASIDataDecompressor.h */,
+				59E25DDB169DD80500BD4B6D /* ASIDataDecompressor.m */,
+				59E25DDC169DD80500BD4B6D /* ASIDownloadCache.h */,
+				59E25DDD169DD80500BD4B6D /* ASIDownloadCache.m */,
+				59E25DDE169DD80500BD4B6D /* ASIFormDataRequest.h */,
+				59E25DDF169DD80500BD4B6D /* ASIFormDataRequest.m */,
+				59E25DE0169DD80500BD4B6D /* ASIHTTPRequest.h */,
+				59E25DE1169DD80500BD4B6D /* ASIHTTPRequest.m */,
+				59E25DE2169DD80500BD4B6D /* ASIHTTPRequestConfig.h */,
+				59E25DE3169DD80500BD4B6D /* ASIHTTPRequestDelegate.h */,
+				59E25DE4169DD80500BD4B6D /* ASIInputStream.h */,
+				59E25DE5169DD80500BD4B6D /* ASIInputStream.m */,
+				59E25DE6169DD80500BD4B6D /* ASINetworkQueue.h */,
+				59E25DE7169DD80500BD4B6D /* ASINetworkQueue.m */,
+				59E25DE8169DD80500BD4B6D /* ASIProgressDelegate.h */,
+				59E25DE9169DD80500BD4B6D /* ASIWebPageRequest */,
+				59E25DEC169DD80500BD4B6D /* CloudFiles */,
+				59E25DFB169DD80500BD4B6D /* Reachability */,
+				59E25DFE169DD80500BD4B6D /* S3 */,
+			);
+			path = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		59E25DE9169DD80500BD4B6D /* ASIWebPageRequest */ = {
+			isa = PBXGroup;
+			children = (
+				59E25DEA169DD80500BD4B6D /* ASIWebPageRequest.h */,
+				59E25DEB169DD80500BD4B6D /* ASIWebPageRequest.m */,
+			);
+			path = ASIWebPageRequest;
+			sourceTree = "<group>";
+		};
+		59E25DEC169DD80500BD4B6D /* CloudFiles */ = {
+			isa = PBXGroup;
+			children = (
+				59E25DED169DD80500BD4B6D /* ASICloudFilesCDNRequest.h */,
+				59E25DEE169DD80500BD4B6D /* ASICloudFilesCDNRequest.m */,
+				59E25DEF169DD80500BD4B6D /* ASICloudFilesContainer.h */,
+				59E25DF0169DD80500BD4B6D /* ASICloudFilesContainer.m */,
+				59E25DF1169DD80500BD4B6D /* ASICloudFilesContainerRequest.h */,
+				59E25DF2169DD80500BD4B6D /* ASICloudFilesContainerRequest.m */,
+				59E25DF3169DD80500BD4B6D /* ASICloudFilesContainerXMLParserDelegate.h */,
+				59E25DF4169DD80500BD4B6D /* ASICloudFilesContainerXMLParserDelegate.m */,
+				59E25DF5169DD80500BD4B6D /* ASICloudFilesObject.h */,
+				59E25DF6169DD80500BD4B6D /* ASICloudFilesObject.m */,
+				59E25DF7169DD80500BD4B6D /* ASICloudFilesObjectRequest.h */,
+				59E25DF8169DD80500BD4B6D /* ASICloudFilesObjectRequest.m */,
+				59E25DF9169DD80500BD4B6D /* ASICloudFilesRequest.h */,
+				59E25DFA169DD80500BD4B6D /* ASICloudFilesRequest.m */,
+			);
+			path = CloudFiles;
+			sourceTree = "<group>";
+		};
+		59E25DFB169DD80500BD4B6D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				59E25DFC169DD80500BD4B6D /* Reachability.h */,
+				59E25DFD169DD80500BD4B6D /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		59E25DFE169DD80500BD4B6D /* S3 */ = {
+			isa = PBXGroup;
+			children = (
+				59E25DFF169DD80500BD4B6D /* ASINSXMLParserCompat.h */,
+				59E25E00169DD80500BD4B6D /* ASIS3Bucket.h */,
+				59E25E01169DD80500BD4B6D /* ASIS3Bucket.m */,
+				59E25E02169DD80500BD4B6D /* ASIS3BucketObject.h */,
+				59E25E03169DD80500BD4B6D /* ASIS3BucketObject.m */,
+				59E25E04169DD80500BD4B6D /* ASIS3BucketRequest.h */,
+				59E25E05169DD80500BD4B6D /* ASIS3BucketRequest.m */,
+				59E25E06169DD80500BD4B6D /* ASIS3ObjectRequest.h */,
+				59E25E07169DD80500BD4B6D /* ASIS3ObjectRequest.m */,
+				59E25E08169DD80500BD4B6D /* ASIS3Request.h */,
+				59E25E09169DD80500BD4B6D /* ASIS3Request.m */,
+				59E25E0A169DD80500BD4B6D /* ASIS3ServiceRequest.h */,
+				59E25E0B169DD80500BD4B6D /* ASIS3ServiceRequest.m */,
+			);
+			path = S3;
+			sourceTree = "<group>";
+		};
+		7A09626D169EBB8300D12EE6 /* TVModel */ = {
+			isa = PBXGroup;
+			children = (
+				7A09626E169EBBB300D12EE6 /* SCModel.h */,
+				7A09626F169EBBB300D12EE6 /* SCModel.m */,
+			);
+			name = TVModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		59176F0A169DB103008540B5 /* 查个交通违章 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59176F29169DB103008540B5 /* Build configuration list for PBXNativeTarget "查个交通违章" */;
+			buildPhases = (
+				59176F07169DB103008540B5 /* Sources */,
+				59176F08169DB103008540B5 /* Frameworks */,
+				59176F09169DB103008540B5 /* Resources */,
+				598962EC169DD9EB00274E63 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "查个交通违章";
+			productName = "查个交通违章";
+			productReference = 59176F0B169DB103008540B5 /* 查个交通违章.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		59176F02169DB103008540B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TrafficViolation;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = yeetong;
+			};
+			buildConfigurationList = 59176F05169DB103008540B5 /* Build configuration list for PBXProject "查个交通违章" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 59176F00169DB103008540B5;
+			productRefGroup = 59176F0C169DB103008540B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				59176F0A169DB103008540B5 /* 查个交通违章 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		59176F09169DB103008540B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59176F1A169DB103008540B5 /* InfoPlist.strings in Resources */,
+				59176F23169DB103008540B5 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		598962EC169DD9EB00274E63 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "unlock xcode:\nexport CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\n\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\n\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\n\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59176F07169DB103008540B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59176F1C169DB103008540B5 /* main.m in Sources */,
+				59176F20169DB103008540B5 /* TrafficViolationAppDelegate.m in Sources */,
+				59176F26169DB103008540B5 /* TrafficViolationViewController.m in Sources */,
+				599955AB169DB88C009326B4 /* TVAddCarViewController.m in Sources */,
+				599955C7169DD336009326B4 /* Global.m in Sources */,
+				59E25E0C169DD80500BD4B6D /* ASIAuthenticationDialog.m in Sources */,
+				59E25E0D169DD80500BD4B6D /* ASIDataCompressor.m in Sources */,
+				59E25E0E169DD80500BD4B6D /* ASIDataDecompressor.m in Sources */,
+				59E25E0F169DD80500BD4B6D /* ASIDownloadCache.m in Sources */,
+				59E25E10169DD80500BD4B6D /* ASIFormDataRequest.m in Sources */,
+				59E25E11169DD80500BD4B6D /* ASIHTTPRequest.m in Sources */,
+				59E25E12169DD80500BD4B6D /* ASIInputStream.m in Sources */,
+				59E25E13169DD80500BD4B6D /* ASINetworkQueue.m in Sources */,
+				59E25E14169DD80500BD4B6D /* ASIWebPageRequest.m in Sources */,
+				59E25E15169DD80500BD4B6D /* ASICloudFilesCDNRequest.m in Sources */,
+				59E25E16169DD80500BD4B6D /* ASICloudFilesContainer.m in Sources */,
+				59E25E17169DD80500BD4B6D /* ASICloudFilesContainerRequest.m in Sources */,
+				59E25E18169DD80500BD4B6D /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				59E25E19169DD80500BD4B6D /* ASICloudFilesObject.m in Sources */,
+				59E25E1A169DD80500BD4B6D /* ASICloudFilesObjectRequest.m in Sources */,
+				59E25E1B169DD80500BD4B6D /* ASICloudFilesRequest.m in Sources */,
+				59E25E1C169DD80500BD4B6D /* Reachability.m in Sources */,
+				59E25E1D169DD80500BD4B6D /* ASIS3Bucket.m in Sources */,
+				59E25E1E169DD80500BD4B6D /* ASIS3BucketObject.m in Sources */,
+				59E25E1F169DD80500BD4B6D /* ASIS3BucketRequest.m in Sources */,
+				59E25E20169DD80500BD4B6D /* ASIS3ObjectRequest.m in Sources */,
+				59E25E21169DD80500BD4B6D /* ASIS3Request.m in Sources */,
+				59E25E22169DD80500BD4B6D /* ASIS3ServiceRequest.m in Sources */,
+				7A09625C169EAFFF00D12EE6 /* TVCompletedViewController.m in Sources */,
+				7A096260169EB03D00D12EE6 /* TVUnprocessedViewController.m in Sources */,
+				7A096270169EBBB300D12EE6 /* SCModel.m in Sources */,
+				590F50DF169F152200C98984 /* TVViolationInfoCell.m in Sources */,
+				59D346BC169F1DD1002FBF74 /* MBProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		59176F18169DB103008540B5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59176F2D169DB120008540B5 /* zh */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		59176F21169DB103008540B5 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59176F2C169DB120008540B5 /* zh */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		59176F27169DB103008540B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		59176F28169DB103008540B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		59176F2A169DB103008540B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "查个交通违章/查个交通违章-Prefix.pch";
+				INFOPLIST_FILE = "查个交通违章/查个交通违章-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		59176F2B169DB103008540B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "查个交通违章/查个交通违章-Prefix.pch";
+				INFOPLIST_FILE = "查个交通违章/查个交通违章-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		59176F05169DB103008540B5 /* Build configuration list for PBXProject "查个交通违章" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59176F27169DB103008540B5 /* Debug */,
+				59176F28169DB103008540B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59176F29169DB103008540B5 /* Build configuration list for PBXNativeTarget "查个交通违章" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59176F2A169DB103008540B5 /* Debug */,
+				59176F2B169DB103008540B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 59176F02169DB103008540B5 /* Project object */;
+}

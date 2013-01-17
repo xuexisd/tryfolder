@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5923E4A216822056002CB961 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5923E4A116822056002CB961 /* libiconv.dylib */; };
+		59629803168220CE00DD132F /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59629802168220CE00DD132F /* libzbar.a */; };
+		5962980A168220F000DD132F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59629809168220F000DD132F /* CoreMedia.framework */; };
+		5962980C168220FC00DD132F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5962980B168220FC00DD132F /* CoreVideo.framework */; };
+		5962980D1682212900DD132F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5923E49E16822047002CB961 /* AVFoundation.framework */; };
+		59F9B795168219A300AC9B81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F9B794168219A300AC9B81 /* UIKit.framework */; };
+		59F9B797168219A300AC9B81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F9B796168219A300AC9B81 /* Foundation.framework */; };
+		59F9B799168219A300AC9B81 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F9B798168219A300AC9B81 /* CoreGraphics.framework */; };
+		59F9B79F168219A300AC9B81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59F9B79D168219A300AC9B81 /* InfoPlist.strings */; };
+		59F9B7A1168219A300AC9B81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F9B7A0168219A300AC9B81 /* main.m */; };
+		59F9B7A5168219A300AC9B81 /* TryScanAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F9B7A4168219A300AC9B81 /* TryScanAppDelegate.m */; };
+		59F9B7A8168219A300AC9B81 /* TryScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F9B7A7168219A300AC9B81 /* TryScanViewController.m */; };
+		59F9B7AB168219A300AC9B81 /* TryScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F9B7A9168219A300AC9B81 /* TryScanViewController.xib */; };
+		59F9B7B2168219BD00AC9B81 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F9B7B1168219BD00AC9B81 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5923E49E16822047002CB961 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5923E4A116822056002CB961 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		59629802168220CE00DD132F /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		59629809168220F000DD132F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5962980B168220FC00DD132F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		59F9B790168219A300AC9B81 /* TryScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F9B794168219A300AC9B81 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		59F9B796168219A300AC9B81 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		59F9B798168219A300AC9B81 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		59F9B79C168219A300AC9B81 /* TryScan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TryScan-Info.plist"; sourceTree = "<group>"; };
+		59F9B79E168219A300AC9B81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		59F9B7A0168219A300AC9B81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		59F9B7A2168219A300AC9B81 /* TryScan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TryScan-Prefix.pch"; sourceTree = "<group>"; };
+		59F9B7A3168219A300AC9B81 /* TryScanAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TryScanAppDelegate.h; sourceTree = "<group>"; };
+		59F9B7A4168219A300AC9B81 /* TryScanAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryScanAppDelegate.m; sourceTree = "<group>"; };
+		59F9B7A6168219A300AC9B81 /* TryScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TryScanViewController.h; sourceTree = "<group>"; };
+		59F9B7A7168219A300AC9B81 /* TryScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryScanViewController.m; sourceTree = "<group>"; };
+		59F9B7AA168219A300AC9B81 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TryScanViewController.xib; sourceTree = "<group>"; };
+		59F9B7B1168219BD00AC9B81 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		59F9B7B816821A7500AC9B81 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
+		59F9B7B916821A7500AC9B81 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		59F9B7BA16821A7500AC9B81 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		59F9B7BB16821A7500AC9B81 /* ImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScanner.h; sourceTree = "<group>"; };
+		59F9B7BC16821A7500AC9B81 /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		59F9B7BD16821A7500AC9B81 /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		59F9B7BE16821A7500AC9B81 /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
+		59F9B7BF16821A7500AC9B81 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		59F9B7C016821A7500AC9B81 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		59F9B7C116821A7500AC9B81 /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
+		59F9B7C216821A7500AC9B81 /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
+		59F9B7C316821A7500AC9B81 /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
+		59F9B7C416821A7500AC9B81 /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
+		59F9B7C516821A7500AC9B81 /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
+		59F9B7C616821A7500AC9B81 /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
+		59F9B7C716821A7500AC9B81 /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
+		59F9B7C816821A7500AC9B81 /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
+		59F9B7C916821A7500AC9B81 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
+		59F9B7CA16821A7500AC9B81 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		59F9B7CB16821A7500AC9B81 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		59F9B78D168219A300AC9B81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5962980D1682212900DD132F /* AVFoundation.framework in Frameworks */,
+				5962980C168220FC00DD132F /* CoreVideo.framework in Frameworks */,
+				5962980A168220F000DD132F /* CoreMedia.framework in Frameworks */,
+				5923E4A216822056002CB961 /* libiconv.dylib in Frameworks */,
+				59F9B7B2168219BD00AC9B81 /* QuartzCore.framework in Frameworks */,
+				59F9B795168219A300AC9B81 /* UIKit.framework in Frameworks */,
+				59F9B797168219A300AC9B81 /* Foundation.framework in Frameworks */,
+				59F9B799168219A300AC9B81 /* CoreGraphics.framework in Frameworks */,
+				59629803168220CE00DD132F /* libzbar.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59F9B785168219A300AC9B81 = {
+			isa = PBXGroup;
+			children = (
+				5962980B168220FC00DD132F /* CoreVideo.framework */,
+				59629809168220F000DD132F /* CoreMedia.framework */,
+				5923E4A116822056002CB961 /* libiconv.dylib */,
+				5923E49E16822047002CB961 /* AVFoundation.framework */,
+				59F9B79A168219A300AC9B81 /* TryScan */,
+				59F9B793168219A300AC9B81 /* Frameworks */,
+				59F9B791168219A300AC9B81 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		59F9B791168219A300AC9B81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59F9B790168219A300AC9B81 /* TryScan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		59F9B793168219A300AC9B81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59F9B7B1168219BD00AC9B81 /* QuartzCore.framework */,
+				59F9B794168219A300AC9B81 /* UIKit.framework */,
+				59F9B796168219A300AC9B81 /* Foundation.framework */,
+				59F9B798168219A300AC9B81 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59F9B79A168219A300AC9B81 /* TryScan */ = {
+			isa = PBXGroup;
+			children = (
+				59F9B7B616821A7500AC9B81 /* ZBarSDK */,
+				59F9B7A3168219A300AC9B81 /* TryScanAppDelegate.h */,
+				59F9B7A4168219A300AC9B81 /* TryScanAppDelegate.m */,
+				59F9B7A6168219A300AC9B81 /* TryScanViewController.h */,
+				59F9B7A7168219A300AC9B81 /* TryScanViewController.m */,
+				59F9B7A9168219A300AC9B81 /* TryScanViewController.xib */,
+				59F9B79B168219A300AC9B81 /* Supporting Files */,
+			);
+			path = TryScan;
+			sourceTree = "<group>";
+		};
+		59F9B79B168219A300AC9B81 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				59F9B79C168219A300AC9B81 /* TryScan-Info.plist */,
+				59F9B79D168219A300AC9B81 /* InfoPlist.strings */,
+				59F9B7A0168219A300AC9B81 /* main.m */,
+				59F9B7A2168219A300AC9B81 /* TryScan-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		59F9B7B616821A7500AC9B81 /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				59629802168220CE00DD132F /* libzbar.a */,
+				59F9B7B716821A7500AC9B81 /* zbar */,
+				59F9B7C116821A7500AC9B81 /* zbar.h */,
+				59F9B7C216821A7500AC9B81 /* ZBarCameraSimulator.h */,
+				59F9B7C316821A7500AC9B81 /* ZBarCaptureReader.h */,
+				59F9B7C416821A7500AC9B81 /* ZBarHelpController.h */,
+				59F9B7C516821A7500AC9B81 /* ZBarImage.h */,
+				59F9B7C616821A7500AC9B81 /* ZBarImageScanner.h */,
+				59F9B7C716821A7500AC9B81 /* ZBarReaderController.h */,
+				59F9B7C816821A7500AC9B81 /* ZBarReaderView.h */,
+				59F9B7C916821A7500AC9B81 /* ZBarReaderViewController.h */,
+				59F9B7CA16821A7500AC9B81 /* ZBarSDK.h */,
+				59F9B7CB16821A7500AC9B81 /* ZBarSymbol.h */,
+			);
+			path = ZBarSDK;
+			sourceTree = "<group>";
+		};
+		59F9B7B716821A7500AC9B81 /* zbar */ = {
+			isa = PBXGroup;
+			children = (
+				59F9B7B816821A7500AC9B81 /* Decoder.h */,
+				59F9B7B916821A7500AC9B81 /* Exception.h */,
+				59F9B7BA16821A7500AC9B81 /* Image.h */,
+				59F9B7BB16821A7500AC9B81 /* ImageScanner.h */,
+				59F9B7BC16821A7500AC9B81 /* Processor.h */,
+				59F9B7BD16821A7500AC9B81 /* Scanner.h */,
+				59F9B7BE16821A7500AC9B81 /* Symbol.h */,
+				59F9B7BF16821A7500AC9B81 /* Video.h */,
+				59F9B7C016821A7500AC9B81 /* Window.h */,
+			);
+			path = zbar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		59F9B78F168219A300AC9B81 /* TryScan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59F9B7AE168219A300AC9B81 /* Build configuration list for PBXNativeTarget "TryScan" */;
+			buildPhases = (
+				59F9B78C168219A300AC9B81 /* Sources */,
+				59F9B78D168219A300AC9B81 /* Frameworks */,
+				59F9B78E168219A300AC9B81 /* Resources */,
+				59F9B7B5168219CC00AC9B81 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TryScan;
+			productName = TryScan;
+			productReference = 59F9B790168219A300AC9B81 /* TryScan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		59F9B787168219A300AC9B81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TryScan;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = yeetong;
+			};
+			buildConfigurationList = 59F9B78A168219A300AC9B81 /* Build configuration list for PBXProject "TryScan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 59F9B785168219A300AC9B81;
+			productRefGroup = 59F9B791168219A300AC9B81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				59F9B78F168219A300AC9B81 /* TryScan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		59F9B78E168219A300AC9B81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59F9B79F168219A300AC9B81 /* InfoPlist.strings in Resources */,
+				59F9B7AB168219A300AC9B81 /* TryScanViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59F9B7B5168219CC00AC9B81 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\n\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\n\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\n\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59F9B78C168219A300AC9B81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59F9B7A1168219A300AC9B81 /* main.m in Sources */,
+				59F9B7A5168219A300AC9B81 /* TryScanAppDelegate.m in Sources */,
+				59F9B7A8168219A300AC9B81 /* TryScanViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		59F9B79D168219A300AC9B81 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59F9B79E168219A300AC9B81 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		59F9B7A9168219A300AC9B81 /* TryScanViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59F9B7AA168219A300AC9B81 /* en */,
+			);
+			name = TryScanViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		59F9B7AC168219A300AC9B81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		59F9B7AD168219A300AC9B81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		59F9B7AF168219A300AC9B81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TryScan/TryScan-Prefix.pch";
+				INFOPLIST_FILE = "TryScan/TryScan-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/TryScan/ZBarSDK\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		59F9B7B0168219A300AC9B81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TryScan/TryScan-Prefix.pch";
+				INFOPLIST_FILE = "TryScan/TryScan-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/TryScan/ZBarSDK\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		59F9B78A168219A300AC9B81 /* Build configuration list for PBXProject "TryScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59F9B7AC168219A300AC9B81 /* Debug */,
+				59F9B7AD168219A300AC9B81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59F9B7AE168219A300AC9B81 /* Build configuration list for PBXNativeTarget "TryScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59F9B7AF168219A300AC9B81 /* Debug */,
+				59F9B7B0168219A300AC9B81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 59F9B787168219A300AC9B81 /* Project object */;
+}

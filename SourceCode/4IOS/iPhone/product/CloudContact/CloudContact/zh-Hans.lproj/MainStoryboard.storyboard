@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="rjV-Q6-C46">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+    </dependencies>
+    <scenes>
+        <!--Cloud Contact View Controller - 云录通-->
+        <scene sceneID="5">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <viewController id="2" customClass="CloudContactViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="登录名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="GsW-1X-dtS">
+                                <rect key="frame" x="14" y="7" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="oZb-oS-QKt">
+                                <rect key="frame" x="14" y="75" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" minimumFontSize="17" id="byS-Kd-fwC">
+                                <rect key="frame" x="14" y="36" width="293" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="txtUserEmailDoneExit:" destination="2" eventType="editingDidEndOnExit" id="78O-ge-cLV"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" minimumFontSize="17" id="KEd-cd-fPW">
+                                <rect key="frame" x="14" y="104" width="293" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="txtUserPWDDoneExit:" destination="2" eventType="editingDidEndOnExit" id="uJx-7d-9MF"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rCW-o8-ppk">
+                                <rect key="frame" x="20" y="151" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnGoToRegister:" destination="2" eventType="touchUpInside" id="wd3-Mb-5Xf"/>
+                                    <segue destination="Kuc-du-8Is" kind="push" identifier="GoToRegister" id="w1N-Zu-ZBz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cQb-8m-rad">
+                                <rect key="frame" x="185" y="151" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="登陆">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLogin:" destination="2" eventType="touchUpInside" id="E5s-a2-dka"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="云录通" id="iAd-UP-Iam"/>
+                    <connections>
+                        <outlet property="txtUserEmail" destination="byS-Kd-fwC" id="BN2-Xp-Kck"/>
+                        <outlet property="txtUserPWD" destination="KEd-cd-fPW" id="UTV-ua-JiV"/>
+                        <segue destination="hGx-z9-dpf" kind="push" identifier="GoToMainContact" id="log-C0-VdP"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="724" y="-796"/>
+        </scene>
+        <!--Main Contact View Controller - 云录通[群组]-->
+        <scene sceneID="ZJG-Ns-HUL">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uf5-GM-RIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="hGx-z9-dpf" customClass="MainContactViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="093-2G-Aic">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yyr-WK-t6a">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupCell" id="Jx4-CF-eC9">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="Tfb-6v-tmy" kind="push" identifier="GoToCurrentGroupAllContact" id="8IF-JF-H31"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hGx-z9-dpf" id="FC3-dL-eg7"/>
+                                    <outlet property="delegate" destination="hGx-z9-dpf" id="37V-BZ-wRN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="云录通[群组]" id="a9d-B7-7Hp"/>
+                    <connections>
+                        <outlet property="tableViewGroupList" destination="yyr-WK-t6a" id="QsR-fD-zoI"/>
+                        <segue destination="7ec-Rk-fHM" kind="push" identifier="GoToAddGroup" id="9ak-z1-yGS"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1196" y="-796"/>
+        </scene>
+        <!--Group Detail List View Controller-->
+        <scene sceneID="zqw-aN-zjX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sp8-48-cyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Tfb-6v-tmy" customClass="GroupDetailListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aP5-r1-hdz">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5rS-Re-ryT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tfb-6v-tmy" id="weu-8b-0cF"/>
+                                    <outlet property="delegate" destination="Tfb-6v-tmy" id="2jh-9l-Zpb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="23l-yc-Gnj"/>
+                    <connections>
+                        <outlet property="tableViewAllPersonInGroup" destination="5rS-Re-ryT" id="84y-VV-Bkr"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1655" y="-796"/>
+        </scene>
+        <!--User Register View Controller - 注册-->
+        <scene sceneID="wSy-ee-fzb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kcL-3v-WqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Kuc-du-8Is" customClass="UserRegisterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FRa-uV-RjJ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="登录名(请使用邮件地址)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="KKo-ox-dRP">
+                                <rect key="frame" x="14" y="7" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lXs-xv-mbU">
+                                <rect key="frame" x="14" y="73" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="再次输入密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cyv-jA-bqC">
+                                <rect key="frame" x="14" y="141" width="102" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="nGC-QH-esK">
+                                <rect key="frame" x="14" y="34" width="285" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="txtUserEmailDone:" destination="Kuc-du-8Is" eventType="editingDidEndOnExit" id="yLu-eT-aor"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="gA5-y2-jQj">
+                                <rect key="frame" x="14" y="102" width="285" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="txtUserPWDDone:" destination="Kuc-du-8Is" eventType="editingDidEndOnExit" id="BRn-QF-OAN"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="en3-2b-7t2">
+                                <rect key="frame" x="14" y="170" width="285" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="txtUserPWDComfirmDone:" destination="Kuc-du-8Is" eventType="editingDidEndOnExit" id="J2a-0X-NLn"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="62D-vh-fJ5">
+                                <rect key="frame" x="185" y="227" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnRegister:" destination="Kuc-du-8Is" eventType="touchUpInside" id="Eqj-e8-PA3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="注册" id="I7u-RB-dC6"/>
+                    <connections>
+                        <outlet property="txtUserEmail" destination="nGC-QH-esK" id="onS-Gg-R9i"/>
+                        <outlet property="txtUserPWD" destination="gA5-y2-jQj" id="BbI-hQ-omx"/>
+                        <outlet property="txtUserPWDComfirm" destination="en3-2b-7t2" id="n2p-DR-ucq"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="730" y="-1393"/>
+        </scene>
+        <!--Add Group View Controller - 添加群组-->
+        <scene sceneID="M2s-0a-nN9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xMZ-Fp-m4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="7ec-Rk-fHM" customClass="AddGroupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9oB-Bn-H2G">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="群组名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="96t-N8-FWY">
+                                <rect key="frame" x="14" y="7" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="xAi-iv-dM4">
+                                <rect key="frame" x="14" y="34" width="286" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XKU-hr-9gg">
+                                <rect key="frame" x="200" y="80" width="100" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="添加">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAddGroup:" destination="7ec-Rk-fHM" eventType="touchUpInside" id="fPZ-20-ZTS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="添加群组" id="ZSp-uF-dWX"/>
+                    <connections>
+                        <outlet property="txtGroupName" destination="xAi-iv-dM4" id="tX9-u6-hxt"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1196" y="-1393"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vlo-4Z-yWD">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tCH-RA-90M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="rjV-Q6-C46" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tzm-ZF-Svj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="aJ9-6f-Qhs"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="323" y="-796"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficViolationCommon", "TrafficViolationCommon\TrafficViolationCommon.csproj", "{BCE1167B-A020-49B4-A78C-72E45A69B7A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficViolationModel", "TrafficViolationModel\TrafficViolationModel.csproj", "{41587D27-0E88-4A2A-8F76-5921FBF96F09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficViolationDA", "TrafficViolationDA\TrafficViolationDA.csproj", "{1766CC1B-482A-4F47-A0A8-54D4B1AE9A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficViolationContract", "TrafficViolationContract\TrafficViolationContract.csproj", "{366FFAD6-0BBD-486C-BF6F-B0A4AD4B6F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficViolationHost", "TrafficViolationHost\TrafficViolationHost.csproj", "{3C2C94DC-049E-4197-97F4-58928B499BFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCE1167B-A020-49B4-A78C-72E45A69B7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE1167B-A020-49B4-A78C-72E45A69B7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE1167B-A020-49B4-A78C-72E45A69B7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE1167B-A020-49B4-A78C-72E45A69B7A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41587D27-0E88-4A2A-8F76-5921FBF96F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41587D27-0E88-4A2A-8F76-5921FBF96F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41587D27-0E88-4A2A-8F76-5921FBF96F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41587D27-0E88-4A2A-8F76-5921FBF96F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1766CC1B-482A-4F47-A0A8-54D4B1AE9A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1766CC1B-482A-4F47-A0A8-54D4B1AE9A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1766CC1B-482A-4F47-A0A8-54D4B1AE9A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1766CC1B-482A-4F47-A0A8-54D4B1AE9A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366FFAD6-0BBD-486C-BF6F-B0A4AD4B6F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366FFAD6-0BBD-486C-BF6F-B0A4AD4B6F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366FFAD6-0BBD-486C-BF6F-B0A4AD4B6F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366FFAD6-0BBD-486C-BF6F-B0A4AD4B6F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C2C94DC-049E-4197-97F4-58928B499BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C2C94DC-049E-4197-97F4-58928B499BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C2C94DC-049E-4197-97F4-58928B499BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C2C94DC-049E-4197-97F4-58928B499BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
