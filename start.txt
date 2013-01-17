@@ -1,2 +1,3 @@
 git
 	-from hasee mac. ok!
+	-from asus windows8. ok!
