@@ -61,7 +61,7 @@ namespace TrafficViolationDA
             }
             catch (Exception ex)
             {
-                listCompleted = null;
+                retListCompleted.Add(new SCModel { ViolationAddress = "[ERROR]" + ex.Message });
             }
             return retListCompleted;
         }
@@ -108,7 +108,7 @@ namespace TrafficViolationDA
             }
             catch (Exception ex)
             {
-                retListUnprocessed = null;
+                retListUnprocessed.Add(new SCModel { ViolationAddress = "[ERROR]" + ex.Message });
             }
             return retListUnprocessed;
         }
