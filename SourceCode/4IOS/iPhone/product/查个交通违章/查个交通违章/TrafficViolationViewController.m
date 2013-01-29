@@ -16,7 +16,7 @@
 
 @implementation TrafficViolationViewController
 {
-    NSArray *tableData;
+    NSMutableArray *tableData;
     int currentTotalCars;
 }
 @synthesize tableView1;
@@ -104,6 +104,21 @@
         NSIndexPath *indexPath = [self.tableView1 indexPathForSelectedRow];
         [Global SetChooseCarNumber:[tableData objectAtIndex:indexPath.row]];
     }
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *pathList=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *firstDocument=[pathList objectAtIndex:0];
+    NSString *path=[firstDocument stringByAppendingPathComponent:@"CarList.plist"];
+    NSMutableDictionary *dict=[[NSMutableDictionary alloc]initWithContentsOfFile:path];
+    tableData=[dict objectForKey:@"Cars"];
+    [tableData removeObject:[tableData objectAtIndex:indexPath.row]];
+    [dict setObject:tableData forKey:@"Cars"];
+    [dict writeToFile:path atomically:YES];
+    [self BindDataForCars];
+    [tableView1 reloadData];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated

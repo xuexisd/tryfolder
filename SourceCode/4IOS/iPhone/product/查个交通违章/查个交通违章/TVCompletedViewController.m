@@ -54,6 +54,7 @@
     [loadingView showAnimated:YES whileExecutingBlock:^{
             [self BaseMBLoadData];
     } completionBlock:^{
+        self.tabBarItem.badgeValue=[NSString stringWithFormat:@"%d",[ViolationAddressArray count]];
         [tableView1 reloadData];
         [loadingView removeFromSuperview];
         loadingView = nil;
