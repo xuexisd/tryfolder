@@ -28,7 +28,7 @@ namespace TrafficViolationDA
             try
             {
                 string serverErrorMsg = "";
-                CarInfoModel isExistCarInfoModel = GetCarInfoDetail(scParams.CarNumber,scParams.CarFrame);
+                CarInfoModel isExistCarInfoModel = GetCarInfoDetail(scParams.CarNumber, scParams.CarFrame);
                 if (isExistCarInfoModel == null)
                 {
                     isExistCarInfoModel = new CarInfoModel();
@@ -40,7 +40,7 @@ namespace TrafficViolationDA
                 {
                     scParams.CarFrame = isExistCarInfoModel.CarFrame;
                 }
-                bool isRefresh = NeedRefresh(scParams.CarNumber,scParams.CarFrame,"C");
+                bool isRefresh = NeedRefresh(scParams.CarNumber, scParams.CarFrame, "C");
                 if (isRefresh)
                 {
                     GetAllCompleted(scParams, ref listCompleted);
@@ -90,7 +90,7 @@ namespace TrafficViolationDA
             try
             {
                 string serverErrorMsg = "";
-                CarInfoModel isExistCarInfoModel = GetCarInfoDetail(scParams.CarNumber,scParams.CarFrame);
+                CarInfoModel isExistCarInfoModel = GetCarInfoDetail(scParams.CarNumber, scParams.CarFrame);
                 if (isExistCarInfoModel == null)
                 {
                     isExistCarInfoModel = new CarInfoModel();
@@ -102,7 +102,7 @@ namespace TrafficViolationDA
                 {
                     scParams.CarFrame = isExistCarInfoModel.CarFrame;
                 }
-                bool isRefresh = NeedRefresh(scParams.CarNumber,scParams.CarFrame,"U");
+                bool isRefresh = NeedRefresh(scParams.CarNumber, scParams.CarFrame, "U");
                 if (isRefresh)
                 {
                     GetAllUnProcessed(scParams, ref listUnprocessed);
@@ -145,7 +145,7 @@ namespace TrafficViolationDA
             return retListUnprocessed;
         }
 
-        public void GetAllCompleted(SCParams scParams,ref List<ViolationModel> listCompleted)
+        public void GetAllCompleted(SCParams scParams, ref List<ViolationModel> listCompleted)
         {
             HTTPHelper httpHelper = new HTTPHelper();
             ViolationModel model = new ViolationModel();
@@ -155,115 +155,115 @@ namespace TrafficViolationDA
 
             if (!pageContentCompleted.Contains("车架号后6位不匹配"))
             {
-            #region if there is only one page
-            int numberCompleted = int.Parse(pageContentCompleted.Substring(pageContentCompleted.IndexOf(" 的 小型汽车 共有  <font color=\"#d42e2f\">") + 34, 1));
-            if (numberCompleted != 0)
-            {
-                string[] completeds = pageContentCompleted.Split(new string[] { "<div class=\"result_r\"><h2>", "</h2><p>", "<font color=\"#d42e2f\">", "</font>元", "</font>分", "于 ", "，在" }, StringSplitOptions.None);
-                int j = 1;
-                if (completeds.Length > 0)
+                #region if there is only one page
+                int numberCompleted = int.Parse(pageContentCompleted.Substring(pageContentCompleted.IndexOf(" 的 小型汽车 共有  <font color=\"#d42e2f\">") + 34, 1));
+                if (numberCompleted != 0)
                 {
-                    for (int i = 0; i < completeds.Length; i++)
+                    string[] completeds = pageContentCompleted.Split(new string[] { "<div class=\"result_r\"><h2>", "</h2><p>", "<font color=\"#d42e2f\">", "</font>元", "</font>分", "于 ", "，在" }, StringSplitOptions.None);
+                    int j = 1;
+                    if (completeds.Length > 0)
                     {
-                        if (!completeds[i].Contains("<")
-                            && !completeds[i].Contains("/>")
-                            && !completeds[i].Contains("罚款，记")
-                            && !completeds[i].Contains("小型汽车")
-                            )
+                        for (int i = 0; i < completeds.Length; i++)
                         {
-                            switch (j)
+                            if (!completeds[i].Contains("<")
+                                && !completeds[i].Contains("/>")
+                                && !completeds[i].Contains("罚款，记")
+                                && !completeds[i].Contains("小型汽车")
+                                )
                             {
-                                case 1:
-                                    model.ViolationAddress = completeds[i];
-                                    break;
-                                case 2:
-                                    model.ViolationDateTime = completeds[i];
-                                    break;
-                                case 3:
-                                    model.ViolationContent = completeds[i];
-                                    break;
-                                case 4:
-                                    model.ViolationAmount = int.Parse(completeds[i]);
-                                    break;
-                                case 5:
-                                    model.ViolationScore = int.Parse(completeds[i]);
-                                    break;
-                                default: break;
-                            }
-                            j++;
-                            if (j > 5)
-                            {
-                                model.CarNumber = scParams.CarNumber;
-                                model.ViolationStatus = "C";
-                                listCompleted.Add(model);
-                                model = new ViolationModel();
-                                j = 1;
+                                switch (j)
+                                {
+                                    case 1:
+                                        model.ViolationAddress = completeds[i];
+                                        break;
+                                    case 2:
+                                        model.ViolationDateTime = completeds[i];
+                                        break;
+                                    case 3:
+                                        model.ViolationContent = completeds[i];
+                                        break;
+                                    case 4:
+                                        model.ViolationAmount = int.Parse(completeds[i]);
+                                        break;
+                                    case 5:
+                                        model.ViolationScore = int.Parse(completeds[i]);
+                                        break;
+                                    default: break;
+                                }
+                                j++;
+                                if (j > 5)
+                                {
+                                    model.CarNumber = scParams.CarNumber;
+                                    model.ViolationStatus = "C";
+                                    listCompleted.Add(model);
+                                    model = new ViolationModel();
+                                    j = 1;
+                                }
                             }
                         }
                     }
                 }
-            }
-            #endregion
+                #endregion
 
-            #region if there are some pages
-            if (pageContentCompleted.Contains("条记录")
-                    && pageContentCompleted.Contains("下一页"))
-            {
-                int totalPage = int.Parse(pageContentCompleted.Substring(pageContentCompleted.IndexOf("条记录 "), 8).Substring(6, 2).Trim());
-                for (int pageNumber = 2; pageNumber <= totalPage; pageNumber++)
+                #region if there are some pages
+                if (pageContentCompleted.Contains("条记录")
+                        && pageContentCompleted.Contains("下一页"))
                 {
-                    urlCompleted = string.Format(CompletedAddress + "&p=" + pageNumber.ToString(), currentCarP, scParams.CarFrame);
-                    pageContentCompleted = httpHelper.GetPage(urlCompleted);
-                    numberCompleted = int.Parse(pageContentCompleted.Substring(pageContentCompleted.IndexOf(" 的 小型汽车 共有  <font color=\"#d42e2f\">") + 34, 1));
-                    if (numberCompleted != 0)
+                    int totalPage = int.Parse(pageContentCompleted.Substring(pageContentCompleted.IndexOf("条记录 "), 8).Substring(6, 2).Trim());
+                    for (int pageNumber = 2; pageNumber <= totalPage; pageNumber++)
                     {
-                        string[] completeds = pageContentCompleted.Split(new string[] { "<div class=\"result_r\"><h2>", "</h2><p>", "<font color=\"#d42e2f\">", "</font>元", "</font>分", "于 ", "，在" }, StringSplitOptions.None);
-                        int j = 1;
-                        if (completeds.Length > 0)
+                        urlCompleted = string.Format(CompletedAddress + "&p=" + pageNumber.ToString(), currentCarP, scParams.CarFrame);
+                        pageContentCompleted = httpHelper.GetPage(urlCompleted);
+                        numberCompleted = int.Parse(pageContentCompleted.Substring(pageContentCompleted.IndexOf(" 的 小型汽车 共有  <font color=\"#d42e2f\">") + 34, 1));
+                        if (numberCompleted != 0)
                         {
-                            for (int i = 0; i < completeds.Length; i++)
+                            string[] completeds = pageContentCompleted.Split(new string[] { "<div class=\"result_r\"><h2>", "</h2><p>", "<font color=\"#d42e2f\">", "</font>元", "</font>分", "于 ", "，在" }, StringSplitOptions.None);
+                            int j = 1;
+                            if (completeds.Length > 0)
                             {
-                                if (!completeds[i].Contains("<")
-                                    && !completeds[i].Contains("/>")
-                                    && !completeds[i].Contains("罚款，记")
-                                    && !completeds[i].Contains("小型汽车")
-                                    )
+                                for (int i = 0; i < completeds.Length; i++)
                                 {
-                                    switch (j)
+                                    if (!completeds[i].Contains("<")
+                                        && !completeds[i].Contains("/>")
+                                        && !completeds[i].Contains("罚款，记")
+                                        && !completeds[i].Contains("小型汽车")
+                                        )
                                     {
-                                        case 1:
-                                            model.ViolationAddress = completeds[i];
-                                            break;
-                                        case 2:
-                                            model.ViolationDateTime = completeds[i];
-                                            break;
-                                        case 3:
-                                            model.ViolationContent = completeds[i];
-                                            break;
-                                        case 4:
-                                            model.ViolationAmount = int.Parse(completeds[i]);
-                                            break;
-                                        case 5:
-                                            model.ViolationScore = int.Parse(completeds[i]);
-                                            break;
-                                        default: break;
-                                    }
-                                    j++;
-                                    if (j > 5)
-                                    {
-                                        model.CarNumber = scParams.CarNumber;
-                                        model.ViolationStatus = "C";
-                                        listCompleted.Add(model);
-                                        model = new ViolationModel();
-                                        j = 1;
+                                        switch (j)
+                                        {
+                                            case 1:
+                                                model.ViolationAddress = completeds[i];
+                                                break;
+                                            case 2:
+                                                model.ViolationDateTime = completeds[i];
+                                                break;
+                                            case 3:
+                                                model.ViolationContent = completeds[i];
+                                                break;
+                                            case 4:
+                                                model.ViolationAmount = int.Parse(completeds[i]);
+                                                break;
+                                            case 5:
+                                                model.ViolationScore = int.Parse(completeds[i]);
+                                                break;
+                                            default: break;
+                                        }
+                                        j++;
+                                        if (j > 5)
+                                        {
+                                            model.CarNumber = scParams.CarNumber;
+                                            model.ViolationStatus = "C";
+                                            listCompleted.Add(model);
+                                            model = new ViolationModel();
+                                            j = 1;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }
-            #endregion
+                #endregion
             }
             else
             {
@@ -425,7 +425,7 @@ namespace TrafficViolationDA
             return retIsExist;
         }
 
-        private CarInfoModel GetCarInfoDetail(string carNumber,string carFrame)
+        private CarInfoModel GetCarInfoDetail(string carNumber, string carFrame)
         {
             SqlHelper helper = new SqlHelper();
             var sqlReader = helper.ExecuteReader("P_CarInfo_GetDetail_By_CarNum", carNumber, carFrame);
@@ -446,10 +446,10 @@ namespace TrafficViolationDA
         {
             SqlHelper helper = new SqlHelper();
             int isSucc = helper.ExecuteNonQuery("P_CarInfo_I", model.CarNumber, model.CarFrame, model.CarOwner, DateTime.Now.AddDays(-1), DateTime.Now.AddDays(-1));
-            
+
         }
 
-        private bool NeedRefresh(string carNumber,string carFrame, string ViolationStatus)
+        private bool NeedRefresh(string carNumber, string carFrame, string ViolationStatus)
         {
             bool retIsRefresh = false;
             SqlHelper helper = new SqlHelper();
@@ -486,7 +486,7 @@ namespace TrafficViolationDA
             return retIsRefresh;
         }
 
-        private List<ViolationModel> GetViolation(string carNumber,string carFrame, string ViolationStatus)
+        private List<ViolationModel> GetViolation(string carNumber, string carFrame, string ViolationStatus)
         {
             List<ViolationModel> listModel = new List<ViolationModel>();
             SqlHelper helper = new SqlHelper();
