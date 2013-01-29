@@ -410,11 +410,11 @@ namespace TrafficViolationDA
         //    return ran.Next(startNum, endNum);
         //}
 
-        private bool IsExistCar(string carNum)
+        private bool IsExistCar(string carNum,string carFrame)
         {
             bool retIsExist = false;
             SqlHelper helper = new SqlHelper();
-            var sqlReader = helper.ExecuteReader("P_IsExist_Car", carNum);
+            var sqlReader = helper.ExecuteReader("P_IsExist_Car", carNum, carFrame);
             while (sqlReader.Read())
             {
                 retIsExist = sqlReader[0].ToString().Equals("0") ? false : true;
