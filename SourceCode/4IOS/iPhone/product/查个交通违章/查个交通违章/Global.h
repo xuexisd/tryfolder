@@ -19,6 +19,9 @@
 +(NSString *)GetUrlAddressCompleted;
 +(NSString *)GetUrlAddressUnprocessed;
 
++(NSString *)GetChooseCarFrame;
++(void)SetChooseCarFrame:(NSString *)carFrame;
+
 +(NSString *)MBProgressLoadingText;
 
 @end

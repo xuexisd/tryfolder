@@ -102,7 +102,8 @@
     if([segue.identifier isEqualToString:@"GoToshowViolationPage"])
     {
         NSIndexPath *indexPath = [self.tableView1 indexPathForSelectedRow];
-        [Global SetChooseCarNumber:[tableData objectAtIndex:indexPath.row]];
+        [Global SetChooseCarNumber:[[tableData objectAtIndex:indexPath.row] substringToIndex:7]];
+        [Global SetChooseCarFrame:[[tableData objectAtIndex:indexPath.row] substringFromIndex:14]];
     }
 }
 

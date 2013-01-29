@@ -13,4 +13,5 @@
 - (IBAction)btnAddCar:(id)sender;
 - (IBAction) textFieldDoneEditing: (id)sender; // 通过Done关闭键盘
 - (IBAction) backgroundTapCloseKey: (id)sender;//通过点击空白处关闭键盘
+@property (strong, nonatomic) IBOutlet UITextField *txtCarFrame;
 @end

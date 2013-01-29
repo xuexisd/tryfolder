@@ -10,6 +10,7 @@
 
 static int _TotalCars;
 static NSString *_ChooseCarNumber;
+static NSString *_ChooseCarFrame;
 
 @implementation Global
 
@@ -29,6 +30,15 @@ static NSString *_ChooseCarNumber;
 +(void)SetChooseCarNumber:(NSString *)carNumber
 {
     _ChooseCarNumber = carNumber;
+}
+
++(NSString *)GetChooseCarFrame
+{
+    return _ChooseCarFrame;
+}
++(void)SetChooseCarFrame:(NSString *)carFrame
+{
+    _ChooseCarFrame = carFrame;
 }
 
 +(NSString *)GetUrlAddressCompleted
