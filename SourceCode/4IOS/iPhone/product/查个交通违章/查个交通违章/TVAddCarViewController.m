@@ -17,6 +17,7 @@
 {
     NSMutableArray *tableData;
 }
+@synthesize txtCarFrame;
 @synthesize txtCarNumber;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,6 +38,7 @@
 - (void)viewDidUnload
 {
     [self setTxtCarNumber:nil];
+    [self setTxtCarFrame:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -54,7 +56,7 @@
     NSString *path=[firstDocument stringByAppendingPathComponent:@"CarList.plist"];
     NSMutableDictionary *dict=[[NSMutableDictionary alloc]initWithContentsOfFile:path];
     tableData=[dict objectForKey:@"Cars"];
-    [tableData addObject:txtCarNumber.text];
+    [tableData addObject:[NSString stringWithFormat:@"%@-->车架号:%@", txtCarNumber.text, txtCarFrame.text]];
     [dict setObject:tableData forKey:@"Cars"];
     bolAdd = [dict writeToFile:path atomically:YES];
     

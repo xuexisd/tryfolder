@@ -37,28 +37,36 @@
 }
 
 - (void)viewDidLoad
-{    
+{
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    ViolationAddressArray=[[NSMutableArray alloc]init];
-    ViolationAmountArray=[[NSMutableArray alloc]init];
-    ViolationDateTimeArray=[[NSMutableArray alloc]init];
-    ViolationScoreArray=[[NSMutableArray alloc]init];
-    
-    loadingView = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:loadingView];
-    loadingView.dimBackground=YES;
-	loadingView.delegate = self;
-	loadingView.labelText = [Global MBProgressLoadingText];
-    [loadingView showAnimated:YES whileExecutingBlock:^{
+    @try
+    {
+        ViolationAddressArray=[[NSMutableArray alloc]init];
+        ViolationAmountArray=[[NSMutableArray alloc]init];
+        ViolationDateTimeArray=[[NSMutableArray alloc]init];
+        ViolationScoreArray=[[NSMutableArray alloc]init];
+        
+        loadingView = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:loadingView];
+        loadingView.dimBackground=YES;
+        loadingView.delegate = self;
+        loadingView.labelText = [Global MBProgressLoadingText];
+        [loadingView showAnimated:YES whileExecutingBlock:^{
             [self BaseMBLoadData];
-    } completionBlock:^{
-        self.tabBarItem.badgeValue=[NSString stringWithFormat:@"%d",[ViolationAddressArray count]];
-        [tableView1 reloadData];
-        [loadingView removeFromSuperview];
-        loadingView = nil;
-    }];
+        } completionBlock:^{
+            self.tabBarItem.badgeValue=[NSString stringWithFormat:@"%d",[ViolationAddressArray count]];
+            [tableView1 reloadData];
+            [loadingView removeFromSuperview];
+            loadingView = nil;
+        }];
+    }
+    @catch (NSException *ex) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@",ex]
+                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 - (void)viewDidUnload
@@ -83,7 +91,7 @@
 {
     responseString = [[NSString alloc]init];
     NSError *error=nil;
-    NSDictionary *scParams=[NSDictionary dictionaryWithObjectsAndKeys:[Global GetChooseCarNumber],@"CarNumber",@"123456",@"CarFrame", nil];
+    NSDictionary *scParams=[NSDictionary dictionaryWithObjectsAndKeys:[Global GetChooseCarNumber],@"CarNumber",[Global GetChooseCarFrame],@"CarFrame", nil];
     NSData *data = [NSJSONSerialization dataWithJSONObject:scParams options:kNilOptions error:&error];
     
     NSURL *url = [NSURL URLWithString:[Global GetUrlAddressCompleted]];
@@ -94,8 +102,8 @@
     [request setDelegate:self];
     [request startSynchronous];
     responseString = [[NSString alloc]initWithString:[request responseString]];
-
-//    responseString = @"[{\"ViolationAddress\":\"317国道郫县段15km+800m\",\"ViolationAmount\":\"100\",\"ViolationDateTime\":\"2012年07月11日14时09分\",\"ViolationScore\":\"3\"},{\"ViolationAddress\":\"武阳大道二段与太平园东二街交叉路口\",\"ViolationAmount\":\"100\",\"ViolationDateTime\":\"2012年06月22日10时55分\",\"ViolationScore\":\"3\"},{\"ViolationAddress\":\"街心花园\",\"ViolationAmount\":\"100\",\"ViolationDateTime\":\"2012年04月14日15时56分\",\"ViolationScore\":\"3\"}]";
+    
+    //    responseString = @"[{\"ViolationAddress\":\"317国道郫县段15km+800m\",\"ViolationAmount\":\"100\",\"ViolationDateTime\":\"2012年07月11日14时09分\",\"ViolationScore\":\"3\"},{\"ViolationAddress\":\"武阳大道二段与太平园东二街交叉路口\",\"ViolationAmount\":\"100\",\"ViolationDateTime\":\"2012年06月22日10时55分\",\"ViolationScore\":\"3\"},{\"ViolationAddress\":\"街心花园\",\"ViolationAmount\":\"100\",\"ViolationDateTime\":\"2012年04月14日15时56分\",\"ViolationScore\":\"3\"}]";
 }
 
 -(void)SerializationDataFromPost
@@ -126,9 +134,9 @@
         currentCell = [nib objectAtIndex:0];
     }
     currentCell.txtAddress.text=[ViolationAddressArray objectAtIndex:indexPath.row];
-    currentCell.lblAmount.text = [ViolationAmountArray objectAtIndex:indexPath.row];
-    currentCell.lblScore.text = [ViolationScoreArray objectAtIndex:indexPath.row];
-    currentCell.lblDateTime.text = [ViolationDateTimeArray objectAtIndex:indexPath.row];
+    currentCell.lblAmount.text = [NSString stringWithFormat:@"%@", [ViolationAmountArray objectAtIndex:indexPath.row]];
+    currentCell.lblScore.text = [NSString stringWithFormat:@"%@", [ViolationScoreArray objectAtIndex:indexPath.row]];
+    currentCell.lblDateTime.text = [NSString stringWithFormat:@"%@", [ViolationDateTimeArray objectAtIndex:indexPath.row]];
     return currentCell;
 }
 
