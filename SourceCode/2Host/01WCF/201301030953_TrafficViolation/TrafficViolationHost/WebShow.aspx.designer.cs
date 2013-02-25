@@ -10,7 +10,7 @@
 namespace TrafficViolationHost {
     
     
-    public partial class UpdateRefreshDate {
+    public partial class WebShow {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,22 @@ namespace TrafficViolationHost {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtCarNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtCarNumber;
+        
+        /// <summary>
+        /// txtCarFrame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCarFrame;
         
         /// <summary>
         /// Button1 control.
@@ -40,21 +49,21 @@ namespace TrafficViolationHost {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Label1 control.
+        /// lblResultU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblResultU;
         
         /// <summary>
-        /// Button2 control.
+        /// lblResultC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Label lblResultC;
     }
 }

@@ -67,6 +67,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WebShow.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +84,13 @@
     </Compile>
     <Compile Include="UpdateRefreshDate.aspx.designer.cs">
       <DependentUpon>UpdateRefreshDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebShow.aspx.cs">
+      <DependentUpon>WebShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebShow.aspx.designer.cs">
+      <DependentUpon>WebShow.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +110,10 @@
     <ProjectReference Include="..\TrafficViolationDA\TrafficViolationDA.csproj">
       <Project>{1766cc1b-482a-4f47-a0a8-54d4b1ae9a3c}</Project>
       <Name>TrafficViolationDA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficViolationModel\TrafficViolationModel.csproj">
+      <Project>{41587d27-0e88-4a2a-8f76-5921fbf96f09}</Project>
+      <Name>TrafficViolationModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

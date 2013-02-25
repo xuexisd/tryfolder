@@ -13,6 +13,8 @@
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </div>
+        <br />
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Update All" />
     </form>
 </body>
 </html>

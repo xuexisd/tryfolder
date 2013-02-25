@@ -35,5 +35,26 @@ namespace TrafficViolationHost
                 Label1.Text = ex.Message;
             }
         }
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Label1.Text = "";
+                SCDA da = new SCDA();
+                int i = da.UpdateRefreshDateToDefault();
+                if (i > 0)
+                {
+                    Label1.Text = "Success";
+                }
+                else
+                {
+                    Label1.Text = "Failed";
+                }
+            }
+            catch (Exception ex)
+            {
+                Label1.Text = ex.Message;
+            }
+        }
     }
 }

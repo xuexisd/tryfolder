@@ -530,5 +530,135 @@ namespace TrafficViolationDA
             SqlHelper helper = new SqlHelper();
             helper.ExecuteNonQuery("P_TrafficViolation_Clear_U", carNumber);
         }
+
+        public int UpdateRefreshDateToDefault()
+        {
+            SqlHelper helper = new SqlHelper();
+            return helper.ExecuteNonQuery("P_Update_All_Refresh_Date");
+        }
+
+        public List<ViolationModel> GetCompletedWebShow(SCParams scParams)
+        {
+            List<ViolationModel> listCompleted = new List<ViolationModel>();
+            if (scParams.CarFrame == "sdl")
+            {
+                CarInfoModel isExistCarInfoModel = GetCarInfoDetailForiHeart(scParams.CarNumber);
+                if (isExistCarInfoModel != null)
+                    scParams.CarFrame = isExistCarInfoModel.CarFrame;
+            }
+            try
+            {
+                string serverErrorMsg = "";
+                CarInfoModel isExistCarInfoModel = GetCarInfoDetail(scParams.CarNumber, scParams.CarFrame);
+                if (isExistCarInfoModel == null)
+                {
+                    isExistCarInfoModel = new CarInfoModel();
+                    isExistCarInfoModel.CarFrame = scParams.CarFrame;
+                    isExistCarInfoModel.CarNumber = scParams.CarNumber;
+                    InsertCarInfo(isExistCarInfoModel);
+                }
+                else
+                {
+                    scParams.CarFrame = isExistCarInfoModel.CarFrame;
+                }
+                bool isRefresh = NeedRefresh(scParams.CarNumber, scParams.CarFrame, "C");
+                if (isRefresh)
+                {
+                    GetAllCompleted(scParams, ref listCompleted);
+                    if (listCompleted.Count > 0 && listCompleted[0].ViolationAddress == "车架号后6位不匹配")
+                    {
+                        serverErrorMsg = "车架号后6位不匹配";
+                    }
+                    else
+                    {
+                        foreach (ViolationModel currentModel in listCompleted)
+                        {
+                            InsertCarTrafficViolation(currentModel);
+                        }
+                        UpdateRefreshDate(scParams.CarNumber, "C");
+                    }
+                }
+                if (string.IsNullOrEmpty(serverErrorMsg))
+                {
+                    listCompleted = GetViolation(scParams.CarNumber, scParams.CarFrame, "C");
+                }
+                else
+                {
+                    listCompleted.Add(new ViolationModel { ViolationAddress = "[ERROR]" + serverErrorMsg });
+                }
+            }
+            catch (Exception ex)
+            {
+                listCompleted.Add(new ViolationModel { ViolationAddress = "[ERROR]" + ex.Message });
+            }
+            return listCompleted;
+        }
+
+        public List<ViolationModel> GetUnProcessedWebShow(SCParams scParams)
+        {
+            List<ViolationModel> listUnprocessed = new List<ViolationModel>();
+            if (scParams.CarFrame == "sdl")
+            {
+                CarInfoModel isExistCarInfoModel = GetCarInfoDetailForiHeart(scParams.CarNumber);
+                if (isExistCarInfoModel != null)
+                    scParams.CarFrame = isExistCarInfoModel.CarFrame;
+            }
+            try
+            {
+                string serverErrorMsg = "";
+                CarInfoModel isExistCarInfoModel = GetCarInfoDetail(scParams.CarNumber, scParams.CarFrame);
+                if (isExistCarInfoModel == null)
+                {
+                    isExistCarInfoModel = new CarInfoModel();
+                    isExistCarInfoModel.CarFrame = scParams.CarFrame;
+                    isExistCarInfoModel.CarNumber = scParams.CarNumber;
+                    InsertCarInfo(isExistCarInfoModel);
+                }
+                else
+                {
+                    scParams.CarFrame = isExistCarInfoModel.CarFrame;
+                }
+                bool isRefresh = NeedRefresh(scParams.CarNumber, scParams.CarFrame, "U");
+                if (isRefresh)
+                {
+                    GetAllUnProcessed(scParams, ref listUnprocessed);
+                    if (listUnprocessed.Count > 0 && listUnprocessed[0].ViolationAddress == "车架号后6位不匹配")
+                    {
+                        serverErrorMsg = "车架号后6位不匹配";
+                    }
+                    else
+                    {
+                        foreach (ViolationModel currentModel in listUnprocessed)
+                        {
+                            InsertCarTrafficViolation(currentModel);
+                        }
+                        UpdateRefreshDate(scParams.CarNumber, "U");
+                    }
+                }
+                if (string.IsNullOrEmpty(serverErrorMsg))
+                {
+                    listUnprocessed = GetViolation(scParams.CarNumber, scParams.CarFrame, "U");
+                }
+                else
+                {
+                    listUnprocessed.Add(new ViolationModel { ViolationAddress = "[ERROR]" + serverErrorMsg });
+                }
+            }
+            catch (Exception ex)
+            {
+                listUnprocessed.Add(new ViolationModel { ViolationAddress = "[ERROR]" + ex.Message });
+            }
+            return listUnprocessed;
+        }
+
+        private CarInfoModel GetCarInfoDetailForiHeart(string carNumber)
+        {
+            SqlHelper helper = new SqlHelper();
+            var sqlReader = helper.ExecuteReader("P_CarInfo_GetDetail_By_CarNum_IHeart", carNumber);
+            CarInfoModel model = (new ModelHelper<CarInfoModel>()).SqlReaderToModelWithString(sqlReader);
+            if (string.IsNullOrEmpty(model.CarNumber))
+                model = null;
+            return model;
+        }
     }
 }
