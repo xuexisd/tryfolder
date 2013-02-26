@@ -410,7 +410,7 @@ namespace TrafficViolationDA
         //    return ran.Next(startNum, endNum);
         //}
 
-        private bool IsExistCar(string carNum,string carFrame)
+        private bool IsExistCar(string carNum, string carFrame)
         {
             bool retIsExist = false;
             SqlHelper helper = new SqlHelper();
@@ -584,11 +584,13 @@ namespace TrafficViolationDA
                 }
                 else
                 {
+                    listCompleted.Clear();
                     listCompleted.Add(new ViolationModel { ViolationAddress = "[ERROR]" + serverErrorMsg });
                 }
             }
             catch (Exception ex)
             {
+                listCompleted.Clear();
                 listCompleted.Add(new ViolationModel { ViolationAddress = "[ERROR]" + ex.Message });
             }
             return listCompleted;
@@ -641,11 +643,13 @@ namespace TrafficViolationDA
                 }
                 else
                 {
+                    listUnprocessed.Clear();
                     listUnprocessed.Add(new ViolationModel { ViolationAddress = "[ERROR]" + serverErrorMsg });
                 }
             }
             catch (Exception ex)
             {
+                listUnprocessed.Clear();
                 listUnprocessed.Add(new ViolationModel { ViolationAddress = "[ERROR]" + ex.Message });
             }
             return listUnprocessed;

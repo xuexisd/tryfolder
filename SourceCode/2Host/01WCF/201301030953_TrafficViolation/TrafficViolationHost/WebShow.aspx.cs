@@ -24,8 +24,8 @@ namespace TrafficViolationHost
             SCDA da = new SCDA();
             List<ViolationModel> listU = da.GetUnProcessedWebShow(scParams);
             List<ViolationModel> listC = da.GetCompletedWebShow(scParams);
-            string stringU = "未处理：<br />";
-            string stringC = "<br />已处理：<br />";
+            string stringU = "<font color=\"red\">未处理：</font><br />";
+            string stringC = "<br /><font color=\"red\">已处理：</font><br />";
             int i = 1;
             int j = 1;
             foreach (ViolationModel u in listU)
@@ -38,11 +38,11 @@ namespace TrafficViolationHost
                 stringC += j.ToString() + "<br />" + string.Format(strFormat, c.ViolationAddress, c.ViolationDateTime, c.ViolationContent, c.ViolationAmount, c.ViolationScore) + "<br /><br />";
                 j++;
             }
-            if (stringU == "未处理：<br />")
-                lblResultU.Text = stringU + "恭喜，木有违章";
+            if (stringU == "<font color=\"red\">未处理：</font><br />")
+                lblResultU.Text = stringU + "恭喜，木有违章<br />";
             else
                 lblResultU.Text = stringU;
-            if (stringC == "<br />已处理：<br />")
+            if (stringC == "<br /><font color=\"red\">已处理：</font><br />")
                 lblResultC.Text = stringC + "恭喜，木有违章";
             else
                 lblResultC.Text = stringC;
