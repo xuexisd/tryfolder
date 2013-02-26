@@ -10,9 +10,9 @@
     <form id="form1" runat="server">
     <div>
     
-        <asp:TextBox ID="txtCarNumber" runat="server"></asp:TextBox>
-        <asp:TextBox ID="txtCarFrame" runat="server"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+        车牌号：<asp:TextBox ID="txtCarNumber" runat="server"></asp:TextBox>
+        车架号：<asp:TextBox ID="txtCarFrame" runat="server"></asp:TextBox><font color="white">sdl</font>
+        <asp:Button ID="Button1" runat="server" Text="查询" OnClick="Button1_Click" />
         <br />
         <asp:Label ID="lblResultU" runat="server" Text=""></asp:Label>
         <asp:Label ID="lblResultC" runat="server" Text=""></asp:Label>

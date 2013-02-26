@@ -26,20 +26,24 @@ namespace TrafficViolationHost
             List<ViolationModel> listC = da.GetCompletedWebShow(scParams);
             string stringU = "未处理：<br />";
             string stringC = "<br />已处理：<br />";
+            int i = 1;
+            int j = 1;
             foreach (ViolationModel u in listU)
             {
-                stringU += string.Format(strFormat, u.ViolationAddress, u.ViolationDateTime, u.ViolationContent, u.ViolationAmount, u.ViolationScore) + "<br />";
+                stringU += i.ToString() + "<br />" + string.Format(strFormat, u.ViolationAddress, u.ViolationDateTime, u.ViolationContent, u.ViolationAmount, u.ViolationScore) + "<br /><br />";
+                i++;
             }
             foreach (ViolationModel c in listC)
             {
-                stringC += string.Format(strFormat, c.ViolationAddress, c.ViolationDateTime, c.ViolationContent, c.ViolationAmount, c.ViolationScore) + "<br />";
+                stringC += j.ToString() + "<br />" + string.Format(strFormat, c.ViolationAddress, c.ViolationDateTime, c.ViolationContent, c.ViolationAmount, c.ViolationScore) + "<br /><br />";
+                j++;
             }
             if (stringU == "未处理：<br />")
-                lblResultU.Text = "恭喜，木有违章";
+                lblResultU.Text = stringU + "恭喜，木有违章";
             else
                 lblResultU.Text = stringU;
             if (stringC == "<br />已处理：<br />")
-                lblResultC.Text = "恭喜，木有违章";
+                lblResultC.Text = stringC + "恭喜，木有违章";
             else
                 lblResultC.Text = stringC;
         }
