@@ -56,5 +56,15 @@ namespace TrafficViolationHost
                 Label1.Text = ex.Message;
             }
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            if (txtPass.Text.Trim().Equals("123123"))
+            {
+                SCDA da = new SCDA();
+                GridView1.DataSource = da.GetAllCarInfo();
+                GridView1.DataBind();
+            }
+        }
     }
 }

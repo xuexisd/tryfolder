@@ -540,7 +540,7 @@ namespace TrafficViolationDA
         public List<ViolationModel> GetCompletedWebShow(SCParams scParams)
         {
             List<ViolationModel> listCompleted = new List<ViolationModel>();
-            if (scParams.CarFrame == "sdl")
+            if (scParams.CarFrame == "123123")
             {
                 CarInfoModel isExistCarInfoModel = GetCarInfoDetailForiHeart(scParams.CarNumber);
                 if (isExistCarInfoModel != null)
@@ -599,7 +599,7 @@ namespace TrafficViolationDA
         public List<ViolationModel> GetUnProcessedWebShow(SCParams scParams)
         {
             List<ViolationModel> listUnprocessed = new List<ViolationModel>();
-            if (scParams.CarFrame == "sdl")
+            if (scParams.CarFrame == "123123")
             {
                 CarInfoModel isExistCarInfoModel = GetCarInfoDetailForiHeart(scParams.CarNumber);
                 if (isExistCarInfoModel != null)
@@ -663,6 +663,14 @@ namespace TrafficViolationDA
             if (string.IsNullOrEmpty(model.CarNumber))
                 model = null;
             return model;
+        }
+
+        public DataTable GetAllCarInfo()
+        {
+            SqlHelper helper = new SqlHelper();
+            DataTable dt=new DataTable();
+            helper.FillDataset("P_CarInfo_S", dt);
+            return dt;
         }
     }
 }
