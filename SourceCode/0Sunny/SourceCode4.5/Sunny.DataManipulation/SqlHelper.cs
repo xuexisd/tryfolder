@@ -1,323 +1,241 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data.SqlClient;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Security.Cryptography;
-
+using System.Text;
 namespace Sunny.DataManipulation
 {
-    /// <summary>
-    /// operate MSSql database
-    /// </summary>
     public class SqlHelper
     {
-        #region public object
-
-        /// <summary>
-        /// definition SqlConnection object conn
-        /// </summary>
         public SqlConnection conn;
-        /// <summary>
-        /// 选择性读取配置文件中的数据库连接字符串(多线连接)
-        /// </summary>
         public string CurrentConnectionDBstring;
-
-        #endregion
-
-        #region public Method
-
-        /// <summary>
-        /// instance SqlConnection
-        /// </summary>
+        public static string CurrentKey;
+        public static string CurrentIV;
         public void Initconn()
         {
-            if (conn != null)
+            if (this.conn != null)
             {
-                if (conn.State == ConnectionState.Open)
+                if (this.conn.State == ConnectionState.Open)
                 {
-                    conn.Close();
-                    conn.Dispose();
+                    this.conn.Close();
+                    this.conn.Dispose();
                 }
-                if (string.IsNullOrEmpty(CurrentConnectionDBstring))
-                    conn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["SunnySqlDBString"].ToString());
+                if (string.IsNullOrEmpty(this.CurrentConnectionDBstring))
+                {
+                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings["sLeysiV/r+dcoq19ztaUfF7KmzmN/CU+JRPaVSu0PSQ="].ToString()));
+                }
                 else
-                    conn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings[CurrentConnectionDBstring].ToString());
+                {
+                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings[this.CurrentConnectionDBstring].ToString()));
+                }
             }
             else
             {
-                if (string.IsNullOrEmpty(CurrentConnectionDBstring))
-                    conn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["SunnySqlDBString"].ToString());
+                if (string.IsNullOrEmpty(this.CurrentConnectionDBstring))
+                {
+                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings["sLeysiV/r+dcoq19ztaUfF7KmzmN/CU+JRPaVSu0PSQ="].ToString()));
+                }
                 else
-                    conn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings[CurrentConnectionDBstring].ToString());
+                {
+                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings[this.CurrentConnectionDBstring].ToString()));
+                }
             }
-
         }
-
-        /// <summary>
-        /// Close this SqlConnection
-        /// </summary>
         public void Closeconn()
         {
-            if (conn != null)
+            if (this.conn != null)
             {
-                if (conn.State == ConnectionState.Open)
+                if (this.conn.State == ConnectionState.Open)
                 {
-                    conn.Close();
-                    conn.Dispose();
+                    this.conn.Close();
+                    this.conn.Dispose();
                 }
             }
         }
-
-        #endregion
-
-        #region SqlBaseHelper
-
-        #region CreateCommand
-        /// <summary>
-        /// Simplify the creation of a Sql command object by allowing
-        /// a stored procedure and optional parameters to be provided
-        /// </summary>
-        /// <remarks>
-        /// e.g.:  
-        ///  SqlCommand command = CreateCommand(conn, "AddCustomer", "CustomerID", "CustomerName");
-        /// </remarks>
-        /// <param name="spName">The name of the stored procedure</param>
-        /// <param name="sourceColumns">An array of string to be assigned as the source columns of the stored procedure parameters</param>
-        /// <returns>A valid SqlCommand object</returns>
         public SqlCommand CreateCommand(string spName, params object[] parameterValues)
         {
-            Initconn();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = spName;
-            // 如果有参数值
-            if ((parameterValues != null) && (parameterValues.Length > 0))
+            this.Initconn();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = spName;
+            if (parameterValues != null && parameterValues.Length > 0)
             {
-                // 从缓存中加载存储过程参数,如果缓存中不存在则从数据库中检索参数信息并加载到缓存中. ()
-                SqlParameter[] commandParameters = SqlHelperParameterCacheCN.GetSpParameterSet(conn, spName);
-                // 给存储过程参数赋值
-                SqlBaseHelperCN.AssignParameterValues(commandParameters, parameterValues);
-                SqlBaseHelperCN.AttachParameters(cmd, commandParameters);
+                SqlParameter[] spParameterSet = SqlHelperParameterCacheCN.GetSpParameterSet(this.conn, spName);
+                SqlBaseHelperCN.AssignParameterValues(spParameterSet, parameterValues);
+                SqlBaseHelperCN.AttachParameters(sqlCommand, spParameterSet);
             }
-            return cmd;
-
+            return sqlCommand;
         }
-        #endregion
-
-        #region OutParameter
-
         public object GetParameterValue(SqlCommand cmd, string outParValue)
         {
-            string outParamterValue = @"@" + outParValue;
-            //cmd.Parameters.Add(new SqlParameter(outParamterValue,DBNull.Value));
-            //cmd.Parameters[outParamterValue].Direction = ParameterDirection.Output;
-            cmd.Connection = conn;
-            conn.Open();
+            string parameterName = "@" + outParValue;
+            cmd.Connection = this.conn;
+            this.conn.Open();
             cmd.ExecuteNonQuery();
-            return cmd.Parameters[outParamterValue].Value;
+            return cmd.Parameters[parameterName].Value;
         }
-
-        #endregion
-
-        #region ExecuteDataset方法
-
-        /// <summary>
-        /// 执行指定数据库连接字符串的命令,直接提供参数值,返回DataSet.
-        /// </summary>
-        /// <remarks>
-        /// 此方法不提供访问存储过程输出参数和返回值.
-        /// 示例: 
-        ///  DataSet ds = ExecuteDataset(connString, "GetOrders", 24, 36);
-        /// </remarks>
-        /// <param name="spName">存储过程名</param>
-        /// <param name="parameterValues">分配给存储过程输入参数的对象数组</param>
-        /// <returns>返回一个包含结果集的DataSet</returns>
         public DataSet ExecuteDataset(string spName, params object[] parameterValues)
         {
-            Initconn();
-            return SqlBaseHelperCN.ExecuteDataset(conn, spName, parameterValues);
-
+            this.Initconn();
+            return SqlBaseHelperCN.ExecuteDataset(this.conn, spName, parameterValues);
         }
-
-        /// <summary>
-        /// 执行指定数据库连接对象的命令,返回DataSet.
-        /// </summary>
-        /// <remarks>
-        /// 示例:  
-        ///  DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders");
-        /// </remarks>
-        /// <param name="commandType">命令类型 (存储过程,命令文本或其它)</param>
-        /// <param name="commandText">存储过程名或T-SQL语句</param>
-        /// <returns>返回一个包含结果集的DataSet</returns>
         public DataSet ExecuteDataset(CommandType commandType, string commandText)
         {
-            Initconn();
-            return SqlBaseHelperCN.ExecuteDataset(conn, commandType, commandText);
-
+            this.Initconn();
+            return SqlBaseHelperCN.ExecuteDataset(this.conn, commandType, commandText);
         }
-
-        /// <summary>
-        /// 执行指定数据库连接对象的命令 
-        /// </summary>
-        /// <remarks>
-        /// 示例:  
-        ///  int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders");
-        /// </remarks>
-        /// <param name="commandType">命令类型(存储过程,命令文本或其它.)</param>
-        /// <param name="commandText">存储过程名称或T-SQL语句</param>
-        /// <returns>返回影响的行数</returns>
         public int ExecuteNonQuery(CommandType commandType, string commandText)
         {
-            Initconn();
-            return SqlBaseHelperCN.ExecuteNonQuery(conn, commandType, commandText);
-
+            this.Initconn();
+            return SqlBaseHelperCN.ExecuteNonQuery(this.conn, commandType, commandText);
         }
-
-        /// <summary>
-        /// 执行指定数据库连接对象的命令,将对象数组的值赋给存储过程参数.
-        /// </summary>
-        /// <remarks>
-        /// 此方法不提供访问存储过程输出参数和返回值
-        /// 示例:  
-        ///  int result = ExecuteNonQuery(conn, "PublishOrders", 24, 36);
-        /// </remarks>
-        /// <param name="spName">存储过程名</param>
-        /// <param name="parameterValues">分配给存储过程输入参数的对象数组</param>
-        /// <returns>返回影响的行数</returns>
         public int ExecuteNonQuery(string spName, params object[] parameterValues)
         {
-            Initconn();
-            return SqlBaseHelperCN.ExecuteNonQuery(conn, spName, parameterValues);
-
+            this.Initconn();
+            return SqlBaseHelperCN.ExecuteNonQuery(this.conn, spName, parameterValues);
         }
-
-        /// <summary>
-        /// 执行指定数据库连接对象的数据阅读器.
-        /// </summary>
-        /// <remarks>
-        /// 示例:  
-        ///  SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders");
-        /// </remarks>
-        /// <param name="commandType">命令类型 (存储过程,命令文本或其它)</param>
-        /// <param name="commandText">存储过程名或T-SQL语句</param>
-        /// <returns>返回包含结果集的SqlDataReader</returns>
         public SqlDataReader ExecuteReader(CommandType commandType, string commandText)
         {
-            Initconn();
-            return SqlBaseHelperCN.ExecuteReader(conn, commandType, commandText);
-
+            this.Initconn();
+            return SqlBaseHelperCN.ExecuteReader(this.conn, commandType, commandText);
         }
-
-        /// <summary>
-        /// [调用者方式]执行指定数据库连接对象的数据阅读器,指定参数值.
-        /// </summary>
-        /// <remarks>
-        /// 此方法不提供访问存储过程输出参数和返回值参数.
-        /// 示例:  
-        ///  SqlDataReader dr = ExecuteReader(conn, "GetOrders", 24, 36);
-        /// </remarks>
-        /// <param name="spName">T存储过程名</param>
-        /// <param name="parameterValues">分配给存储过程输入参数的对象数组</param>
-        /// <returns>返回包含结果集的SqlDataReader</returns>
         public SqlDataReader ExecuteReader(string spName, params object[] parameterValues)
         {
-            Initconn();
-            return SqlBaseHelperCN.ExecuteReader(conn, spName, parameterValues);
-
+            this.Initconn();
+            return SqlBaseHelperCN.ExecuteReader(this.conn, spName, parameterValues);
         }
-
-        #endregion ExecuteDataset数据集命令结束
-
-        #region FillDataset 填充数据集
-
-        /// <summary>
-        /// 执行指定的存储过程,填充到指定的表中
-        /// </summary>
-        /// <param name="spName">存储过程名称</param>
-        /// <param name="dt">要填充结果集的DataTable实例</param>
         public void FillDataset(string spName, DataTable dt)
         {
-            Initconn();
-            string[] tablename = { dt.TableName };
-            SqlBaseHelperCN.FillDataset(conn, spName, dt.DataSet, tablename, null);
+            this.Initconn();
+            string[] tableNames = new string[]
+			{
+				dt.TableName
+			};
+            SqlBaseHelperCN.FillDataset(this.conn, spName, dt.DataSet, tableNames, null);
         }
-
-        /// <summary>
-        /// 执行指定的存储过程,填充到指定的表中
-        /// </summary>
-        /// <param name="spName">存储过程名称</param>
-        /// <param name="dt">要填充结果集的DataTable实例</param>
-        /// <param name="parameterValues">存储过程所需要的参数</param>
         public void FillDataset(string spName, DataTable dt, params object[] parameterValues)
         {
-            Initconn();
-            string[] tablename = { dt.TableName };
-            SqlBaseHelperCN.FillDataset(conn, spName, dt.DataSet, tablename, parameterValues);
+            this.Initconn();
+            string[] tableNames = new string[]
+			{
+				dt.TableName
+			};
+            SqlBaseHelperCN.FillDataset(this.conn, spName, dt.DataSet, tableNames, parameterValues);
         }
-
-        /// <summary>
-        /// 执行指定的存储过程,填充到指定的表中
-        /// </summary>
         public void FillDataset(SqlCommand command, DataTable dt)
         {
-            Initconn();
+            this.Initconn();
             if (command.Parameters.Count > 0)
             {
-                string[] tablename = { dt.TableName };
-                SqlParameter[] clonedParameters = new SqlParameter[command.Parameters.Count];
+                string[] tableNames = new string[]
+				{
+					dt.TableName
+				};
+                SqlParameter[] array = new SqlParameter[command.Parameters.Count];
                 for (int i = 0; i < command.Parameters.Count; i++)
                 {
-                    clonedParameters[i] = (SqlParameter)((ICloneable)command.Parameters[i]).Clone();
+                    array[i] = (SqlParameter)((ICloneable)command.Parameters[i]).Clone();
                 }
-                SqlBaseHelperCN.FillDataset(conn, command.CommandType, command.CommandText, dt.DataSet, tablename, clonedParameters);
+                SqlBaseHelperCN.FillDataset(this.conn, command.CommandType, command.CommandText, dt.DataSet, tableNames, array);
             }
             else
             {
-                string[] tablename = { dt.TableName };
-                SqlBaseHelperCN.FillDataset(conn, command.CommandText, dt.DataSet, tablename, null);
+                string[] tableNames = new string[]
+				{
+					dt.TableName
+				};
+                SqlBaseHelperCN.FillDataset(this.conn, command.CommandText, dt.DataSet, tableNames, null);
             }
         }
-
-        #endregion
-
-        #endregion
-
-        #region SqlHelper_DataSet
-
-        /// <summary>
-        /// 更新DataSet
-        /// </summary>
-        /// <param name="spName">存储过程名</param>
-        /// <param name="dt">要更新的存储过程</param>
-        /// <returns></returns>
         public void Update(string spName, DataTable dt)
         {
-            Initconn();
-            //SqlBaseHelperCN.ExecuteNonQuery(conn, spName, dt);
+            this.Initconn();
             for (int i = 0; i < dt.Rows.Count; i++)
-                SqlBaseHelperCN.ExecuteDatasetTypedParams(conn, spName, dt.Rows[i]);
+            {
+                SqlBaseHelperCN.ExecuteDatasetTypedParams(this.conn, spName, dt.Rows[i]);
+            }
         }
-
         public void UpdateDataTable(DataTable dt, bool isdel)
         {
-            Initconn();
-            string[] clos = new string[dt.Columns.Count];
-            string delString;
+            this.Initconn();
+            string[] array = new string[dt.Columns.Count];
             for (int i = 0; i < dt.Columns.Count; i++)
-                clos.SetValue(dt.Columns[i].ColumnName, i);
-            string tableName = dt.TableName.Substring(dt.TableName.IndexOf("_") + 1);
+            {
+                array.SetValue(dt.Columns[i].ColumnName, i);
+            }
+            string str = dt.TableName.Substring(dt.TableName.IndexOf("_") + 1);
+            string spName;
             if (isdel)
-                delString = "P_" + tableName + "_D";
+            {
+                spName = "P_" + str + "_D";
+            }
             else
-                delString = "P_" + tableName + "_U_Deleted";
-            SqlCommand insertCommand = SqlBaseHelperCN.CreateCommand(conn, "P_" + tableName + "_I", clos);
-            SqlCommand deleteCommand = SqlBaseHelperCN.CreateCommand(conn, delString, clos[0]);
-            SqlCommand updateCommand = SqlBaseHelperCN.CreateCommand(conn, "P_" + tableName + "_U", clos);
+            {
+                spName = "P_" + str + "_U_Deleted";
+            }
+            SqlCommand insertCommand = SqlBaseHelperCN.CreateCommand(this.conn, "P_" + str + "_I", array);
+            SqlCommand deleteCommand = SqlBaseHelperCN.CreateCommand(this.conn, spName, new string[]
+			{
+				array[0]
+			});
+            SqlCommand updateCommand = SqlBaseHelperCN.CreateCommand(this.conn, "P_" + str + "_U", array);
             SqlBaseHelperCN.UpdateDataset(insertCommand, deleteCommand, updateCommand, dt.DataSet, dt.TableName);
         }
-
-        #endregion
-
+        private static byte[] GetLegalKey()
+        {
+            SqlHelper.CurrentKey = "ii37y237ey2u3te2ur2!@#RTHY^&*fghfth*(DFGwydljI&*9&THYhrtGWER87r0";
+            SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
+            string text = SqlHelper.CurrentKey;
+            symmetricAlgorithm.GenerateKey();
+            byte[] key = symmetricAlgorithm.Key;
+            int num = key.Length;
+            if (text.Length > num)
+            {
+                text = text.Substring(0, num);
+            }
+            else
+            {
+                if (text.Length < num)
+                {
+                    text = text.PadRight(num, ' ');
+                }
+            }
+            return Encoding.ASCII.GetBytes(text);
+        }
+        private static byte[] GetLegalIV()
+        {
+            SqlHelper.CurrentIV = "immsg!!@#!@$#$^$GTRGHTYHU&IAppDomainSetup&*YJTlskdjfsdkjxc@#0607";
+            SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
+            string text = SqlHelper.CurrentIV;
+            symmetricAlgorithm.GenerateIV();
+            byte[] iV = symmetricAlgorithm.IV;
+            int num = iV.Length;
+            if (text.Length > num)
+            {
+                text = text.Substring(0, num);
+            }
+            else
+            {
+                if (text.Length < num)
+                {
+                    text = text.PadRight(num, ' ');
+                }
+            }
+            return Encoding.ASCII.GetBytes(text);
+        }
+        private static string Decrypto(string Source)
+        {
+            SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
+            byte[] array = Convert.FromBase64String(Source);
+            MemoryStream stream = new MemoryStream(array, 0, array.Length);
+            symmetricAlgorithm.Key = SqlHelper.GetLegalKey();
+            symmetricAlgorithm.IV = SqlHelper.GetLegalIV();
+            ICryptoTransform transform = symmetricAlgorithm.CreateDecryptor();
+            CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Read);
+            StreamReader streamReader = new StreamReader(stream2);
+            return streamReader.ReadToEnd();
+        }
     }
 }
