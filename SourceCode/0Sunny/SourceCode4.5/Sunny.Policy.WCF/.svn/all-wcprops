@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/8/trunk/sunnyfly/SourceCode/Sunny.Policy.WCF
+END
+SunnyWcfConsoleHost.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/7/trunk/sunnyfly/SourceCode/Sunny.Policy.WCF/SunnyWcfConsoleHost.cs
+END
+SunnyWcfProxyConsole.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/7/trunk/sunnyfly/SourceCode/Sunny.Policy.WCF/SunnyWcfProxyConsole.cs
+END
+Sunny.Policy.WCF.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/7/trunk/sunnyfly/SourceCode/Sunny.Policy.WCF/Sunny.Policy.WCF.csproj
+END
+SunnyWcfProxyIIS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/7/trunk/sunnyfly/SourceCode/Sunny.Policy.WCF/SunnyWcfProxyIIS.cs
+END

@@ -1,0 +1,83 @@
+10
+
+dir
+16
+https://sunnyfly.googlecode.com/svn/trunk/sunnyfly/SourceCode
+https://sunnyfly.googlecode.com/svn
+
+
+
+2010-06-11T14:54:27.075275Z
+14
+sunnyXSD@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+017b08b0-adf3-3d59-2401-d99fd41c6036
+
+Sunny.Common
+dir
+
+Sunny.DataManipulation
+dir
+
+Sunny.Controls.AspNetPager
+dir
+
+Sunny.sln
+file
+
+
+
+
+2010-06-05T15:32:25.889544Z
+bd1a09e33c4ddd1ba26ebccf5e85525b
+2010-06-05T15:34:41.089613Z
+8
+sunnyXSD@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4016
+
+Sunny.PageOperation
+dir
+
+Sunny.Policy.WCF
+dir
+
+Sunny.Common.Security
+dir
+
+Sunny.XmlOperation
+dir
+
