@@ -3,188 +3,113 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Sunny.Common.Security.EncryptoDecrypto
+namespace Sunny.Common.Security
 {
-    /// <summary>   
-    /// 对称加密算法类[使用前请务必设置key和iv]
-    /// </summary>   
     public class SymmetricMethod
     {
-        
-        /// <summary>   
-        /// 获得密钥   
-        /// </summary>   
-        /// <returns>密钥</returns>   
-        private static byte[] GetLegalKeyC()
-        {
-            string sTemp = @"Wos(%&hj7x82H$yuBI0456F2Lyj5&fvSBFCy76*h%(HilJ$lhj!y6&(*jkPgn224";
-
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            mobjCryptoService.GenerateKey();
-            byte[] bytTemp = mobjCryptoService.Key;
-            int KeyLength = bytTemp.Length;
-            if (sTemp.Length > KeyLength)
-                sTemp = sTemp.Substring(0, KeyLength);
-            else if (sTemp.Length < KeyLength)
-                sTemp = sTemp.PadRight(KeyLength, ' ');
-            return ASCIIEncoding.ASCII.GetBytes(sTemp);
-        }
-        /// <summary>   
-        /// 获得初始向量IV   
-        /// </summary>   
-        /// <returns>初试向量IV</returns>   
-        private static byte[] GetLegalIVC()
-        {
-            string sTemp = @"Jbwaj*Ghg7!rNIfb&95GUY82LyjhUb#er57HBh(u%g6HJ($jhWk7&!hg4ui%$filme";
-
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            mobjCryptoService.GenerateIV();
-            byte[] bytTemp = mobjCryptoService.IV;
-            int IVLength = bytTemp.Length;
-            if (sTemp.Length > IVLength)
-                sTemp = sTemp.Substring(0, IVLength);
-            else if (sTemp.Length < IVLength)
-                sTemp = sTemp.PadRight(IVLength, ' ');
-            return ASCIIEncoding.ASCII.GetBytes(sTemp);
-        }
-        /// <summary>   
-        /// 加密方法   
-        /// </summary>   
-        /// <param name="Source">待加密的串</param>   
-        /// <returns>经过加密的串</returns>   
-        public static string EncryptoC(string Source)
-        {
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            byte[] bytIn = UTF8Encoding.UTF8.GetBytes(Source);
-            MemoryStream ms = new MemoryStream();
-            mobjCryptoService.Key = GetLegalKeyC();
-            mobjCryptoService.IV = GetLegalIVC();
-            ICryptoTransform encrypto = mobjCryptoService.CreateEncryptor();
-            CryptoStream cs = new CryptoStream(ms, encrypto, CryptoStreamMode.Write);
-            cs.Write(bytIn, 0, bytIn.Length);
-            cs.FlushFinalBlock();
-            ms.Close();
-            byte[] bytOut = ms.ToArray();
-            return Convert.ToBase64String(bytOut);
-        }
-        /// <summary>   
-        /// 解密方法   
-        /// </summary>   
-        /// <param name="Source">待解密的串</param>   
-        /// <returns>经过解密的串</returns>   
-        public static string DecryptoC(string Source)
-        {
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            byte[] bytIn = Convert.FromBase64String(Source);
-            MemoryStream ms = new MemoryStream(bytIn, 0, bytIn.Length);
-            mobjCryptoService.Key = GetLegalKeyC();
-            mobjCryptoService.IV = GetLegalIVC();
-            ICryptoTransform encrypto = mobjCryptoService.CreateDecryptor();
-            CryptoStream cs = new CryptoStream(ms, encrypto, CryptoStreamMode.Read);
-            StreamReader sr = new StreamReader(cs);
-            return sr.ReadToEnd();
-        }
-
-        /// <summary>   
-        /// 获得密钥   
-        /// </summary>   
-        /// <returns>密钥</returns>   
-        private static byte[] GetLegalKeyS()
-        {
-            string sTemp = @"Asb(%&hj7x82H$yuBI0456F2Lyj5&fvSBFCy76*h%(HilJ$lhj!y6&(*jxianren";
-            //string sTemp = strKey;
-
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            mobjCryptoService.GenerateKey();
-            byte[] bytTemp = mobjCryptoService.Key;
-            int KeyLength = bytTemp.Length;
-            if (sTemp.Length > KeyLength)
-                sTemp = sTemp.Substring(0, KeyLength);
-            else if (sTemp.Length < KeyLength)
-                sTemp = sTemp.PadRight(KeyLength, ' ');
-            return ASCIIEncoding.ASCII.GetBytes(sTemp);
-        }
-        /// <summary>   
-        /// 获得初始向量IV   
-        /// </summary>   
-        /// <returns>初试向量IV</returns>   
-        private static byte[] GetLegalIVS()
-        {
-            string sTemp = @"Banaj*Ghg7!rNIfb&95GUU82LyjhUb#er51HBh(u%g6HJ($jhWk7&!hg4ui%$fiban";
-            //string sTemp = strIV;
-
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            mobjCryptoService.GenerateIV();
-            byte[] bytTemp = mobjCryptoService.IV;
-            int IVLength = bytTemp.Length;
-            if (sTemp.Length > IVLength)
-                sTemp = sTemp.Substring(0, IVLength);
-            else if (sTemp.Length < IVLength)
-                sTemp = sTemp.PadRight(IVLength, ' ');
-            return ASCIIEncoding.ASCII.GetBytes(sTemp);
-        }
-        /// <summary>   
-        /// 加密方法   
-        /// </summary>   
-        /// <param name="Source">待加密的串</param>   
-        /// <returns>经过加密的串</returns>   
-        public static string EncryptoS(string Source)
-        {
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            byte[] bytIn = UTF8Encoding.UTF8.GetBytes(Source);
-            MemoryStream ms = new MemoryStream();
-            mobjCryptoService.Key = GetLegalKeyS();
-            mobjCryptoService.IV = GetLegalIVS();
-            ICryptoTransform encrypto = mobjCryptoService.CreateEncryptor();
-            CryptoStream cs = new CryptoStream(ms, encrypto, CryptoStreamMode.Write);
-            cs.Write(bytIn, 0, bytIn.Length);
-            cs.FlushFinalBlock();
-            ms.Close();
-            byte[] bytOut = ms.ToArray();
-            return Convert.ToBase64String(bytOut);
-        }
-        /// <summary>   
-        /// 解密方法   
-        /// </summary>   
-        /// <param name="Source">待解密的串</param>   
-        /// <returns>经过解密的串</returns>   
-        public static string DecryptoS(string Source)
-        {
-            SymmetricAlgorithm mobjCryptoService = new RijndaelManaged();
-            byte[] bytIn = Convert.FromBase64String(Source);
-            MemoryStream ms = new MemoryStream(bytIn, 0, bytIn.Length);
-            mobjCryptoService.Key = GetLegalKeyS();
-            mobjCryptoService.IV = GetLegalIVS();
-            ICryptoTransform encrypto = mobjCryptoService.CreateDecryptor();
-            CryptoStream cs = new CryptoStream(ms, encrypto, CryptoStreamMode.Read);
-            StreamReader sr = new StreamReader(cs);
-            return sr.ReadToEnd();
-        }
-
-        #region MD5_Method
-
         /// <summary>
-        /// MD5的加密方法
+        /// AES加密
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="plainText">原始文本</param>
+        /// <param name="KeyStr"></param>
+        /// <param name="IVStr"></param>
         /// <returns></returns>
-        public static String md5(String s)
+        public static string EncryptString_Aes(string plainText, string KeyStr, string IVStr)
         {
-            System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
-            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(s);
-            bytes = md5.ComputeHash(bytes);
-            md5.Clear();
-
-            string ret = "";
-            for (int i = 0; i < bytes.Length; i++)
+            byte[] Key = Encoding.UTF8.GetBytes(KeyStr.Replace("a", "e").Replace("A", "E").Replace("b", "n").Replace("B", "N").Replace("c", "r").Replace("C", "R").Replace("v", "y").Replace("V", "Y").Replace("g", "9").Replace("G", "9").Replace("o", "0").Replace("O", "0").Replace("1", "I").Replace("5", "S"));
+            byte[] IV = Encoding.UTF8.GetBytes(IVStr.Replace("a", "e").Replace("A", "E").Replace("b", "n").Replace("B", "N").Replace("c", "r").Replace("C", "R").Replace("v", "y").Replace("V", "Y").Replace("g", "9").Replace("G", "9").Replace("o", "0").Replace("O", "0").Replace("1", "I").Replace("5", "S"));
+            // Check arguments.
+            //if (plainText == null || plainText.Length <= 0)
+            //    throw new ArgumentNullException("plainText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("Key");
+            byte[] encrypted;
+            // Create an AesManaged object
+            // with the specified key and IV.
+            using (AesManaged aesAlg = new AesManaged())
             {
-                ret += Convert.ToString(bytes[i], 16).PadLeft(2, '0');
+                aesAlg.Key = Key;
+                aesAlg.IV = IV;
+
+                // Create a decrytor to perform the stream transform.
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+                // Create the streams used for encryption.
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+
+                            //Write all data to the stream.
+                            swEncrypt.Write(plainText);
+                        }
+                        encrypted = msEncrypt.ToArray();
+                    }
+                }
             }
 
-            return ret.PadLeft(32, '0');
+
+            // Return the encrypted bytes from the memory stream.
+            return Convert.ToBase64String(encrypted);
+
         }
 
+        /// <summary>
+        /// AES解密
+        /// </summary>
+        /// <param name="cipherText">密码文本</param>
+        /// <param name="KeyStr"></param>
+        /// <param name="IVStr"></param>
+        /// <returns></returns>
+        public static string DecryptString_Aes(string cipherText, string KeyStr, string IVStr)
+        {
+            byte[] Key = Encoding.UTF8.GetBytes(KeyStr.Replace("a", "e").Replace("A", "E").Replace("b", "n").Replace("B", "N").Replace("c", "r").Replace("C", "R").Replace("v", "y").Replace("V", "Y").Replace("g", "9").Replace("G", "9").Replace("o", "0").Replace("O", "0").Replace("1", "I").Replace("5", "S"));
+            byte[] IV = Encoding.UTF8.GetBytes(IVStr.Replace("a", "e").Replace("A", "E").Replace("b", "n").Replace("B", "N").Replace("c", "r").Replace("C", "R").Replace("v", "y").Replace("V", "Y").Replace("g", "9").Replace("G", "9").Replace("o", "0").Replace("O", "0").Replace("1", "I").Replace("5", "S"));
+            // Check arguments.
+            //if (cipherText == null || cipherText.Length <= 0)
+            //    throw new ArgumentNullException("cipherText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("Key");
 
-        #endregion
+            // Declare the string used to hold
+            // the decrypted text.
+            string plaintext = null;
+
+            // Create an AesManaged object
+            // with the specified key and IV.
+            using (AesManaged aesAlg = new AesManaged())
+            {
+                aesAlg.Key = Key;
+                aesAlg.IV = IV;
+
+                // Create a decrytor to perform the stream transform.
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+                // Create the streams used for decryption.
+                using (MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(cipherText)))
+                {
+                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                        {
+
+                            // Read the decrypted bytes from the decrypting stream
+                            // and place them in a string.
+                            plaintext = srDecrypt.ReadToEnd();
+                        }
+                    }
+                }
+
+            }
+
+            return plaintext;
+
+        }
     }
 }

@@ -45,6 +45,12 @@
     <Compile Include="SqlBaseHelperEN.cs" />
     <Compile Include="SqlHelper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sunny.Common.Security\Sunny.Common.Security.csproj">
+      <Project>{3af9bc54-141c-4e2d-b20f-b16c7df81579}</Project>
+      <Name>Sunny.Common.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

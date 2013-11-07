@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunny.DataManipulation", "Sunny.DataManipulation\Sunny.DataManipulation.csproj", "{DB844547-D197-479D-A1AF-775B73B3FF4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunny.Common.Security", "Sunny.Common.Security\Sunny.Common.Security.csproj", "{3AF9BC54-141C-4E2D-B20F-B16C7DF81579}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{DB844547-D197-479D-A1AF-775B73B3FF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB844547-D197-479D-A1AF-775B73B3FF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB844547-D197-479D-A1AF-775B73B3FF4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF9BC54-141C-4E2D-B20F-B16C7DF81579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF9BC54-141C-4E2D-B20F-B16C7DF81579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF9BC54-141C-4E2D-B20F-B16C7DF81579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF9BC54-141C-4E2D-B20F-B16C7DF81579}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

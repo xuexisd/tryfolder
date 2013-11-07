@@ -5,12 +5,13 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using Sunny.Common.Security;
+
 namespace Sunny.DataManipulation
 {
     public class SqlHelper
     {
         public SqlConnection conn;
-        public string CurrentConnectionDBstring;
         public static string CurrentKey;
         public static string CurrentIV;
         public void Initconn()
@@ -22,25 +23,11 @@ namespace Sunny.DataManipulation
                     this.conn.Close();
                     this.conn.Dispose();
                 }
-                if (string.IsNullOrEmpty(this.CurrentConnectionDBstring))
-                {
-                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings["sLeysiV/r+dcoq19ztaUfF7KmzmN/CU+JRPaVSu0PSQ="].ToString()));
-                }
-                else
-                {
-                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings[this.CurrentConnectionDBstring].ToString()));
-                }
+                this.conn = new SqlConnection(SymmetricMethod.DecryptString_Aes(ConfigurationManager.AppSettings["SunnySQLConnection"].ToString(), ConfigurationManager.AppSettings["SunnySecurityA1"].ToString(), ConfigurationManager.AppSettings["SunnySecurityA2"].ToString()));
             }
             else
             {
-                if (string.IsNullOrEmpty(this.CurrentConnectionDBstring))
-                {
-                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings["sLeysiV/r+dcoq19ztaUfF7KmzmN/CU+JRPaVSu0PSQ="].ToString()));
-                }
-                else
-                {
-                    this.conn = new SqlConnection(SqlHelper.Decrypto(ConfigurationManager.AppSettings[this.CurrentConnectionDBstring].ToString()));
-                }
+                this.conn = new SqlConnection(SymmetricMethod.DecryptString_Aes(ConfigurationManager.AppSettings["SunnySQLConnection"].ToString(), ConfigurationManager.AppSettings["SunnySecurityA1"].ToString(), ConfigurationManager.AppSettings["SunnySecurityA2"].ToString()));
             }
         }
         public void Closeconn()
@@ -183,59 +170,59 @@ namespace Sunny.DataManipulation
             SqlCommand updateCommand = SqlBaseHelperCN.CreateCommand(this.conn, "P_" + str + "_U", array);
             SqlBaseHelperCN.UpdateDataset(insertCommand, deleteCommand, updateCommand, dt.DataSet, dt.TableName);
         }
-        private static byte[] GetLegalKey()
-        {
-            SqlHelper.CurrentKey = "ii37y237ey2u3te2ur2!@#RTHY^&*fghfth*(DFGwydljI&*9&THYhrtGWER87r0";
-            SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
-            string text = SqlHelper.CurrentKey;
-            symmetricAlgorithm.GenerateKey();
-            byte[] key = symmetricAlgorithm.Key;
-            int num = key.Length;
-            if (text.Length > num)
-            {
-                text = text.Substring(0, num);
-            }
-            else
-            {
-                if (text.Length < num)
-                {
-                    text = text.PadRight(num, ' ');
-                }
-            }
-            return Encoding.ASCII.GetBytes(text);
-        }
-        private static byte[] GetLegalIV()
-        {
-            SqlHelper.CurrentIV = "immsg!!@#!@$#$^$GTRGHTYHU&IAppDomainSetup&*YJTlskdjfsdkjxc@#0607";
-            SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
-            string text = SqlHelper.CurrentIV;
-            symmetricAlgorithm.GenerateIV();
-            byte[] iV = symmetricAlgorithm.IV;
-            int num = iV.Length;
-            if (text.Length > num)
-            {
-                text = text.Substring(0, num);
-            }
-            else
-            {
-                if (text.Length < num)
-                {
-                    text = text.PadRight(num, ' ');
-                }
-            }
-            return Encoding.ASCII.GetBytes(text);
-        }
-        private static string Decrypto(string Source)
-        {
-            SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
-            byte[] array = Convert.FromBase64String(Source);
-            MemoryStream stream = new MemoryStream(array, 0, array.Length);
-            symmetricAlgorithm.Key = SqlHelper.GetLegalKey();
-            symmetricAlgorithm.IV = SqlHelper.GetLegalIV();
-            ICryptoTransform transform = symmetricAlgorithm.CreateDecryptor();
-            CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Read);
-            StreamReader streamReader = new StreamReader(stream2);
-            return streamReader.ReadToEnd();
-        }
+        //private static byte[] GetLegalKey()
+        //{
+        //    SqlHelper.CurrentKey = "ii37y237ey2u3te2ur2!@#RTHY^&*fghfth*(DFGwydljI&*9&THYhrtGWER87r0";
+        //    SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
+        //    string text = SqlHelper.CurrentKey;
+        //    symmetricAlgorithm.GenerateKey();
+        //    byte[] key = symmetricAlgorithm.Key;
+        //    int num = key.Length;
+        //    if (text.Length > num)
+        //    {
+        //        text = text.Substring(0, num);
+        //    }
+        //    else
+        //    {
+        //        if (text.Length < num)
+        //        {
+        //            text = text.PadRight(num, ' ');
+        //        }
+        //    }
+        //    return Encoding.ASCII.GetBytes(text);
+        //}
+        //private static byte[] GetLegalIV()
+        //{
+        //    SqlHelper.CurrentIV = "immsg!!@#!@$#$^$GTRGHTYHU&IAppDomainSetup&*YJTlskdjfsdkjxc@#0607";
+        //    SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
+        //    string text = SqlHelper.CurrentIV;
+        //    symmetricAlgorithm.GenerateIV();
+        //    byte[] iV = symmetricAlgorithm.IV;
+        //    int num = iV.Length;
+        //    if (text.Length > num)
+        //    {
+        //        text = text.Substring(0, num);
+        //    }
+        //    else
+        //    {
+        //        if (text.Length < num)
+        //        {
+        //            text = text.PadRight(num, ' ');
+        //        }
+        //    }
+        //    return Encoding.ASCII.GetBytes(text);
+        //}
+        //private static string Decrypto(string Source)
+        //{
+        //    SymmetricAlgorithm symmetricAlgorithm = new RijndaelManaged();
+        //    byte[] array = Convert.FromBase64String(Source);
+        //    MemoryStream stream = new MemoryStream(array, 0, array.Length);
+        //    symmetricAlgorithm.Key = SqlHelper.GetLegalKey();
+        //    symmetricAlgorithm.IV = SqlHelper.GetLegalIV();
+        //    ICryptoTransform transform = symmetricAlgorithm.CreateDecryptor();
+        //    CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Read);
+        //    StreamReader streamReader = new StreamReader(stream2);
+        //    return streamReader.ReadToEnd();
+        //}
     }
 }
